@@ -35,7 +35,6 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
   const [vehiclesList, setVehiclesList] = useState<any[]>([])
   const [keywordBrand, setKeywordBrand] = useState<string>("")
   const [keywordVehicle, setKeywordVehicle] = useState<string>("")
-  const [createObjectURL, setCreateObjectURL] = useState<any>()
   const [actualStep, setActualStep] = useState<Stp>("first")
   const [offer, setOffer] = useState<Offer>({
     brand_id: "",
@@ -125,12 +124,6 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
       groupOfSteps.includes("green")
     )
   }
-
-  useEffect(() => {
-    if (offer.file !== null) {
-      //setCreateObjectURL(URL.createObjectURL(offer.file))
-    }
-  }, [offer.file])
 
   const handleSteps = (stage: Stp) => {
     const stepsComponents = {
@@ -386,16 +379,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                 value="foto do seu carro"
               />
             </div>
-            {/*!offer.file ? (
-              <div className="w-16/9 h-80 bg-gray-300 border rounded-md"></div>
-            ) : (
-              <div className="w-16/9 h-80 flex bg-gray-300 border rounded-md">
-                <img
-                  className="w-auto h-60 m-auto"
-                  src={createObjectURL ?? ""}
-                />
-              </div>
-            )*/}
+
             <input
               className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
               id="file_input"
