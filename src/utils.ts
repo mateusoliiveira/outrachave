@@ -25,7 +25,7 @@ export const handleFeedbackColor = (status: number): string => {
     return availableColors[verifyFirstChar()] ?? "yellow-500"
 }
 
-export function cpfMask(value) {
+export function cpfMask(value: any) {
     return (
         value &&
         value
@@ -37,7 +37,7 @@ export function cpfMask(value) {
     ) // captura 2 numeros seguidos de um traço e não deixa ser digitado mais nada
 }
 
-export function dateMask(value) {
+export function dateMask(value: any) {
     let v = value.replace(/\D/g, '').slice(0, 10)
     if (v.length >= 5) {
         return `${v.slice(0, 2)}/${v.slice(2, 4)}/${v.slice(4)}`
@@ -47,7 +47,7 @@ export function dateMask(value) {
     return v
 }
 
-export function formatZipCode(cep) {
+export function formatZipCode(cep: any) {
     cep = cep.replace(/\D/g, "")
     cep = cep.replace(/^(\d{5})(\d)/, "$1-$2")
     if (cep.length >= 10) {
@@ -63,7 +63,7 @@ export function formatToBRL(value: string | number): string {
     }) : 'Não disponível'
 }
 
-export function validateCPF(cpf) {
+export function validateCPF(cpf: any) {
     cpf = cpf.replace(/[^\d]+/g, '')
     if (cpf === '') return false
     // Elimina CPFs invalidos conhecidos
@@ -81,6 +81,7 @@ export function validateCPF(cpf) {
         return false
     // Valida 1o digito
     let add = 0
+    let i
     for (i = 0; i < 9; i++)
         add += parseInt(cpf.charAt(i)) * (10 - i)
     let rev = 11 - (add % 11)
@@ -99,23 +100,23 @@ export function validateCPF(cpf) {
     return rev === parseInt(cpf.charAt(10))
 }
 
-export function formatName(value) {
+export function formatName(value: any) {
     return value && value.replace(/[^[a-zA-Zà-ú-'\s]/g, '')
 }
 
-export function formatCode(value) {
+export function formatCode(value: any) {
     return formatToOnlyDigits(value)
 }
 
-export function removePhoneMask(value) {
+export function removePhoneMask(value: any) {
     return formatToOnlyDigits(value)
 }
 
-export function formatToOnlyDigits(value) {
+export function formatToOnlyDigits(value: any) {
     return value && value.replace(/[^0-9]+/g, '')
 }
 
-export function formatPhone(numero) {
+export function formatPhone(numero: any) {
     if (!numero) return numero
 
     numero = numero.replace(/[^0-9]+/g, '')
@@ -132,7 +133,7 @@ export function formatPhone(numero) {
     return numero
 }
 
-export function formatDateString(date) {
+export function formatDateString(date: any) {
     const date_arr = date.split('/')
 
     const dd = date_arr[0]

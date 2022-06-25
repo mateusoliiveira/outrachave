@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import axios, { AxiosInstance } from "axios";
 import { clientURLApi, serverURLApi } from "./lib/api";
 
 export const ApiServer: AxiosInstance = axios.create({

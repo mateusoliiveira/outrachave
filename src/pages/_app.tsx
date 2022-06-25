@@ -14,11 +14,6 @@ Router.events.on("routeChangeStart", () => {
     document.getElementById("splash-loading")
   )
 })
-Router.events.on("routeChangeComplete", () => {
-  return ReactDOM.unmountComponentAtNode(
-    document.getElementById("splash-loading")
-  )
-})
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }: any) {
