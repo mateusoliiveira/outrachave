@@ -128,7 +128,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
 
   useEffect(() => {
     if (offer.file !== null) {
-      setCreateObjectURL(URL.createObjectURL(offer.file))
+      //setCreateObjectURL(URL.createObjectURL(offer.file))
     }
   }, [offer.file])
 
@@ -386,7 +386,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                 value="foto do seu carro"
               />
             </div>
-            {!offer.file ? (
+            {/*!offer.file ? (
               <div className="w-16/9 h-80 bg-gray-300 border rounded-md"></div>
             ) : (
               <div className="w-16/9 h-80 flex bg-gray-300 border rounded-md">
@@ -395,7 +395,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                   src={createObjectURL ?? ""}
                 />
               </div>
-            )}
+            )*/}
             <input
               className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
               id="file_input"
