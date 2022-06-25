@@ -17,7 +17,7 @@ import {
   formatPhone,
   formatToBRL,
   formatZipCode,
-} from "../../../../utils"
+} from "../../../../_utils"
 import Horse from "../../../Horse"
 
 const OfferPublished = ({ offer }: any) => {

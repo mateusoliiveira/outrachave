@@ -1,9 +1,9 @@
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from "next"
 import CarsForSale from "../../../components/CarsForSale"
 import Container from "../../../components/Structure/Container"
-import { ApiClient } from "../../../services"
+import { ApiClient } from "../../../_services"
 
-const SearchVehicle: NextPage = ({ query, cars }: any) => {
+const SearchBrand: NextPage = ({ query, cars }: any) => {
   return (
     <Container>
       <CarsForSale query={query} cars={cars} />
@@ -27,4 +27,4 @@ export const getServerSideProps: GetServerSideProps = async (
   }
 }
 
-export default SearchVehicle
+export default SearchBrand

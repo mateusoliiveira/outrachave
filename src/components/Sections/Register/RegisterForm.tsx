@@ -1,6 +1,6 @@
 import { Button, Label, TextInput } from "flowbite-react"
 import React, { ChangeEvent, useState } from "react"
-import { ApiClient } from "../../../services"
+import { ApiClient } from "../../../_services"
 import { CreateCredential } from "../../../types/CreateCredential"
 import Feedback from "../../Feedback"
 

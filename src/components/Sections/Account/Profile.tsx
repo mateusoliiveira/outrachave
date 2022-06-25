@@ -3,7 +3,7 @@ import { signOut } from "next-auth/react"
 import Link from "next/link"
 import React from "react"
 import { baseImageURL } from "../../../lib/api"
-import { formatToBRL, hideData, hideEmail } from "../../../utils"
+import { formatToBRL, hideData, hideEmail } from "../../../_utils"
 
 const Profile = ({ user }: any) => {
   return (

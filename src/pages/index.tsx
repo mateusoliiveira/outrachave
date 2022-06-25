@@ -4,7 +4,7 @@ import Hero from "../components/Hero"
 import FindCars from "../components/Sections/Home/FindCars"
 import ClassifiedForYour from "../components/Sections/Home/ClassifiedForYour"
 import { Brand } from "../types/Brand"
-import { ApiClient } from "../services"
+import { ApiClient } from "../_services"
 import { Offer } from "../types/Offer"
 
 type IndexProps = {

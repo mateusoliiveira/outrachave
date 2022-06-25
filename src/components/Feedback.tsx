@@ -1,6 +1,6 @@
 import { Modal, Toast } from "flowbite-react"
 import React from "react"
-import { handleFeedbackColor } from "../utils"
+import { handleFeedbackColor } from "../_utils"
 
 const Feedback = ({ messages, status }: any) => {
   return (

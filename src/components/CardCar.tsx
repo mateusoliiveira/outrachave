@@ -2,7 +2,7 @@ import { Badge, Card } from "flowbite-react"
 import Link from "next/link"
 import React from "react"
 import { baseImageURL } from "../lib/api"
-import { formatToBRL } from "../utils"
+import { formatToBRL } from "../_utils"
 
 const CardCar = ({ carData }: any) => {
   return (

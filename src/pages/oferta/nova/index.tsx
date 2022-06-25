@@ -2,7 +2,7 @@ import { GetServerSideProps, NextPage } from "next"
 import { getToken } from "next-auth/jwt"
 import OfferNewFlow from "../../../components/Sections/Offer/OfferNewFlow"
 import Container from "../../../components/Structure/Container"
-import { ApiClient } from "../../../services"
+import { ApiClient } from "../../../_services"
 
 const OfferNew: NextPage = ({ brands, categories, token }: any) => {
   return (

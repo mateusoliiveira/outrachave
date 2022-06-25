@@ -1,6 +1,6 @@
 import React from "react"
 import { baseImageURL } from "../../../lib/api"
-import { formatDate } from "../../../utils"
+import { formatDate } from "../../../_utils"
 
 const Published = ({ offers }: any) => {
   return (

@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from "next"
 import Container from "../../../components/Structure/Container"
 import { Brand } from "../../../types/Brand"
-import { ApiClient } from "../../../services"
+import { ApiClient } from "../../../_services"
 import { Offer } from "../../../types/Offer"
 import OfferPublished from "../../../components/Sections/Offer/Published/OfferPublished"
 

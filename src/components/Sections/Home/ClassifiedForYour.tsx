@@ -1,7 +1,7 @@
 import React from "react"
 import { baseImageURL } from "../../../lib/api"
 import { Offer } from "../../../types/Offer"
-import { formatToBRL } from "../../../utils"
+import { formatToBRL } from "../../../_utils"
 
 type Offers = {
   offers: Offer[]
