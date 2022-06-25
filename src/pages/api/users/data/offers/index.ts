@@ -1,0 +1,21 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { getToken } from 'next-auth/jwt'
+import { ApiServer } from '../../../../../services'
+
+export default async function handler(
+    req: NextApiRequest,
+    res: NextApiResponse<any>
+) {
+    const { token }: any = await getToken({ req })
+    console.log(token)
+    if (req.method == 'GET') {
+        try {
+            const { data } = await ApiServer.get(`/users/data/offers`, {
+                headers: { Authorization: 'Bearer ' + token }
+            })
+            res.status(200).json(data)
+        } catch (error: any) {
+            res.status(error.response.status).json(error.response.data)
+        }
+    }
+}

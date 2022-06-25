@@ -1,0 +1,1 @@
+export const welcomeMessageAfterSuccessRegister: string = 'Seja bem vindo :)'
