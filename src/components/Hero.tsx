@@ -1,6 +1,6 @@
 import Image from "next/image"
 import React from "react"
-import carPic from "../assets/homePng.png"
+import carPic from "../assets/homepng.png"
 
 const HeroAuth = () => {
   return (
