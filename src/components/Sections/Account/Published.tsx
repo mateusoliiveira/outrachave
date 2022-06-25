@@ -7,7 +7,7 @@ const Published = ({ offers }: any) => {
     <div className="text-gray-600 body-font">
       <div className="container px-5 py-6 mx-auto">
         <div className="flex flex-wrap -m-4">
-          {offers?.map((offer) => {
+          {offers?.map((offer: any) => {
             return (
               <div className="p-4 lg:w-1/2 truncate">
                 <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">

@@ -1,6 +1,6 @@
 import React from "react"
 
-const HeroBrand = ({ brandName }: string) => {
+const HeroBrand = ({ brandName }: any) => {
   return (
     <div className="px-20">
       <div className="text-center">
