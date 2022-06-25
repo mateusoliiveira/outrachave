@@ -35,7 +35,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
   const [vehiclesList, setVehiclesList] = useState<any[]>([])
   const [keywordBrand, setKeywordBrand] = useState<string>("")
   const [keywordVehicle, setKeywordVehicle] = useState<string>("")
-  const [createObjectURL, setCreateObjectURL] = useState<null>(null)
+  const [createObjectURL, setCreateObjectURL] = useState<any>()
   const [actualStep, setActualStep] = useState<Stp>("first")
   const [offer, setOffer] = useState<Offer>({
     brand_id: "",
