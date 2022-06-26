@@ -1,11 +1,4 @@
-import {
-  Accordion,
-  Card,
-  Dropdown,
-  Label,
-  Select,
-  TextInput,
-} from "flowbite-react"
+import { Accordion, TextInput } from "flowbite-react"
 import React, { ChangeEvent, useEffect, useState } from "react"
 import CardCar from "./CardCar"
 import ScrollCars from "./ScrollCars"
@@ -23,17 +16,19 @@ const CarsForSale = ({ cars, query }: any) => {
   const allOrFiltered = () => {
     let toFilter = carsList
 
-    //if (filters.model.trim() !== "") {
-    //  toFilter = toFilter.filter((car) =>
-    //    car.title.toLowerCase().includes(filters.model.toLowerCase())
-    //  )
-    //}
-    //
-    //if (filters.year_start <= filters.year_end) {
-    //  toFilter = toFilter.filter(
-    //    (car) => car.year >= filters.year_start && car.year <= filters.year_end
-    //  )
-    //}
+    if (filters.model.trim() !== "") {
+      toFilter = toFilter.filter((car) =>
+        car.title.toLowerCase().includes(filters.model.toLowerCase())
+      )
+    }
+
+    if (filters.year_start <= filters.year_end) {
+      toFilter = toFilter.filter(
+        (car) =>
+          Number(car.year) >= filters.year_start &&
+          Number(car.year) <= filters.year_end
+      )
+    }
 
     return toFilter
   }

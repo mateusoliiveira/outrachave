@@ -7,7 +7,7 @@ type ReactChildren = {
 
 const Wrapper = ({ children }: ReactChildren) => {
   return (
-    <main className="bg-image min-h-100 min-h-screen">
+    <main className="bg-image min-h-100 min-h-screen globalFont">
       <NavbarComponent />
       {children}
     </main>

@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+.globalFont {
   font-family: "Open Sans", sans-serif !important;
-  font-weight: "600";
+  font-weight: "600 !important";
 }
 
 .fade-in {

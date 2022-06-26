@@ -1,10 +1,12 @@
-import { Button, Dropdown, Select, TextInput } from "flowbite-react"
+import { Button, Dropdown, TextInput } from "flowbite-react"
 import Link from "next/link"
-import React, { ChangeEvent, useEffect, useState } from "react"
+import React, { ChangeEvent, useState } from "react"
 import { Brand } from "../../../types/Brand"
 
 const FindCars = (props: any) => {
-  const [brandsList, setBrandsList] = useState<Brand[]>(props.brands)
+  const [brandsList, setBrandsList] = useState<Brand[]>(
+    props.brands.filter((b: any) => b.vehicles.length > 0)
+  )
   const [keywordBrand, setKeywordBrand] = useState<string>("")
   const [keywordModel, setKeywordModel] = useState<string>("")
 
@@ -33,7 +35,7 @@ const FindCars = (props: any) => {
                 helperText="busque por modelo de automóvel"
                 placeholder="Argo 1.6"
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  setKeywordModel(e.target.value)
+                  setKeywordModel(e.target.value.toUpperCase())
                 }
               />
               <div className="pt-2">
