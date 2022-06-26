@@ -18,7 +18,7 @@ const FindCars = (props: any) => {
   }
 
   return (
-    <div>
+    <div className="pt-5">
       <h2
         className="text-4xl pb-10 text-center font-bold"
         style={{ color: "#F77365" }}
@@ -33,7 +33,7 @@ const FindCars = (props: any) => {
                 helperText="busque por modelo de automóvel"
                 placeholder="Argo 1.6"
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  setKeywordModel(e.target.value.toUpperCase())
+                  setKeywordModel(e.target.value)
                 }
               />
               <div className="pt-2">
@@ -60,7 +60,7 @@ const FindCars = (props: any) => {
                   setKeywordBrand(e.target.value)
                 }
               />
-              <div className="h-40 overflow-auto mt-2">
+              <div className="h-20 overflow-auto">
                 {brandsList &&
                   allOrFiltered().map((brand: Brand) => {
                     return (
