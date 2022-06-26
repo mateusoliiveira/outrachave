@@ -29,7 +29,7 @@ const CarsForSale = ({ cars, query }: any) => {
     if (filters.year_start <= filters.year_end) {
       toFilter = toFilter.filter(
         (car) =>
-          Number(car.vehicles.vehicles.year) >= Number(filters.year_start) &&
+          Number(car.vehicles.year) >= Number(filters.year_start) &&
           Number(car.vehicles.year) <= Number(filters.year_end)
       )
     }
