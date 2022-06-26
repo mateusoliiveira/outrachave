@@ -239,8 +239,6 @@ const CarsForSale = ({ cars, query }: any) => {
               <fieldset
                 className="flex flex-row gap-5 px-10 justify-center"
                 id="radio"
-                defaultValue={0}
-                defaultChecked={true}
                 onChange={(e: any) =>
                   setFilters({
                     ...filters,
