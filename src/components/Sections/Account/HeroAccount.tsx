@@ -4,7 +4,7 @@ import Profile from "./Profile"
 import Published from "./Published"
 import Tab from "../../Tab"
 
-const HeroAccount = ({ user }: any) => {
+const HeroAccount = ({ user, offers }: any) => {
   return (
     <div
       className="lg:px-32 container md:justify-evenly m-auto mt-10 font-bold"
@@ -18,7 +18,7 @@ const HeroAccount = ({ user }: any) => {
         </Tabs.Item>
         <Tabs.Item title="Meus anúncios">
           <Tab>
-            <Published offers={user?.offers} />
+            <Published offers={offers} />
           </Tab>
         </Tabs.Item>
       </Tabs.Group>
