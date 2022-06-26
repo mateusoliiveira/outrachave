@@ -239,6 +239,7 @@ const CarsForSale = ({ cars, query }: any) => {
               <fieldset
                 className="flex flex-row gap-5 px-10 justify-center"
                 id="radio"
+                defaultValue={0}
                 onChange={(e: any) =>
                   setFilters({
                     ...filters,
@@ -260,7 +261,11 @@ const CarsForSale = ({ cars, query }: any) => {
                 </div>
                 <div className="flex items-center gap-1">
                   <Radio id="all" name="countries" value={0} />
-                  <Label className="text-white" htmlFor="all">
+                  <Label
+                    className="text-white"
+                    defaultChecked={true}
+                    htmlFor="all"
+                  >
                     Todos
                   </Label>
                 </div>
