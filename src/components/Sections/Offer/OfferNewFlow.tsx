@@ -196,7 +196,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                             <div
                               className={`${
                                 offer.vehicle_id === vehicle.id
-                                  ? "border border-red-600 rounded"
+                                  ? "border border-purple-600 rounded"
                                   : ""
                               }`}
                               key={vehicle.id}
@@ -230,7 +230,6 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
               <Select
                 id="categories"
                 className="mt-2"
-                value={offer.category_id}
                 required={true}
                 onChange={(e) =>
                   setOffer({ ...offer, category_id: e.target.value })
