@@ -231,6 +231,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                 id="categories"
                 className="mt-2"
                 required={true}
+                value={offer.category_id}
                 onChange={(e) =>
                   setOffer({ ...offer, category_id: e.target.value })
                 }
@@ -239,7 +240,11 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                   selecione a categoria do seu auto
                 </option>
                 {categories?.map((category: Category) => {
-                  return <option key={category.id}>{category.name}</option>
+                  return (
+                    <option value={category.id} key={category.id}>
+                      {category.name}
+                    </option>
+                  )
                 })}
               </Select>
             </div>
