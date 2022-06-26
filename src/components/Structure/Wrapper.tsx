@@ -13,10 +13,10 @@ const Wrapper = ({ children }: ReactChildren) => {
         site criado para fins de estudo sobre desenvolvimento web, todos os
         anúncios são fictícios e as imagens de seus respectivos donos
       </div>
-      <div className="mt-5 bg-gray-900 m-auto text-xs justify-center text-center text-white">
+      <div className="bg-gray-900 m-auto text-xs justify-center text-center text-white">
         modelos disponíveis para busca/publicação: Volkswagen e BMW
       </div>
-      <div className="mt-5 bg-gray-900 m-auto text-xs justify-center text-center text-white">
+      <div className="bg-gray-900 m-auto text-xs justify-center text-center text-white">
         modelos disponíveis para busca/publicação: T-Cross, Voyage, Gol, 320i e
         318i
       </div>
