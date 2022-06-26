@@ -31,19 +31,12 @@ const Account: NextPage = ({ user }: any) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
-  const dataUser = await ApiClient.get("/users/data", {
+  const { data } = await ApiClient.get("/users/data", {
     headers: { ...context.req.headers },
-  })
-  console.log({
-    ...dataUser.data[0],
-    offers: JSON.parse(dataUser.data.offers),
   })
   return {
     props: {
-      user: {
-        ...dataUser.data[0],
-        offers: JSON.parse(dataUser.data.offers),
-      },
+      user: data,
     },
   }
 }
