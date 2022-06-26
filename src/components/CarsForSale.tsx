@@ -7,7 +7,7 @@ const CarsForSale = ({ cars, query }: any) => {
   const [carsList, setCarsList] = useState<any[]>(cars)
   const handleEmptyFilter = (value: any) => value ?? undefined
   const [filters, setFilters] = useState<any>({
-    model: undefined,
+    name: undefined,
     doors: undefined,
     liters: undefined,
     cylinders: undefined,
@@ -23,7 +23,7 @@ const CarsForSale = ({ cars, query }: any) => {
 
     if (filters.model.trim() !== "") {
       toFilter = toFilter.filter((car) =>
-        car.vehicles.name.toLowerCase().includes(filters.model.toLowerCase())
+        car.vehicles.name.toLowerCase().includes(filters.name.toLowerCase())
       )
     }
 
@@ -93,7 +93,7 @@ const CarsForSale = ({ cars, query }: any) => {
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
                       setFilters({
                         ...filters,
-                        model: handleEmptyFilter(e.target.value),
+                        name: handleEmptyFilter(e.target.value),
                       })
                     }
                   />
