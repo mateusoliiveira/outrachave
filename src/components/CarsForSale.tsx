@@ -72,14 +72,11 @@ const CarsForSale = ({ cars, query }: any) => {
       toFilter = toFilter.filter((car) =>
         filters.is_automatic === 2
           ? toFilter
-          : car.vehicles.is_automatic == filters.is_automatic
+          : filters.is_automatic == 1
+          ? car.vehicles.is_automatic
+          : !car.vehicles.is_automatic
       )
     }
-
-    console.log(toFilter)
-    console.log("-----filters-----")
-    console.log(filters)
-
     return toFilter
   }
 
@@ -242,7 +239,7 @@ const CarsForSale = ({ cars, query }: any) => {
             <Accordion.Title>Câmbio</Accordion.Title>
             <Accordion.Content>
               <fieldset
-                className="flex flex-col gap-4 w-screen"
+                className="flex flex-row gap-5 px-10 justify-center"
                 id="radio"
                 onChange={(e: any) =>
                   setFilters({
@@ -251,19 +248,19 @@ const CarsForSale = ({ cars, query }: any) => {
                   })
                 }
               >
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
                   <Radio id="mt" name="countries" value={0} />
                   <Label className="text-white" htmlFor="mt">
                     Manual
                   </Label>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
                   <Radio id="at" name="countries" value={1} />
                   <Label className="text-white" htmlFor="at">
                     Automático
                   </Label>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
                   <Radio id="all" name="countries" value={2} />
                   <Label className="text-white" htmlFor="all">
                     Todos
