@@ -8,7 +8,6 @@ export default async function handler(
 ) {
     if (req.method == 'POST') {
         try {
-            console.log('aqui')
             const { data } = await ApiServer.post('/guests/register', req.body, {
                 headers: {
                     'Accept': 'application/json',

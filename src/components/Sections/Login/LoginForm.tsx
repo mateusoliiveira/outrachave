@@ -33,7 +33,6 @@ const LoginForm = () => {
       typeof getErrorIfExists === "string" &&
       getErrorIfExists !== undefined
     ) {
-      console.log(Number(getErrorIfExists.match(/\d+/g)))
       setRequisitionResult({
         messages: ["Usuário ou senha incorretos"],
         status: Number(getErrorIfExists.match(/\d+/g)),

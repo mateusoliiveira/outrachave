@@ -7,7 +7,6 @@ import Container from "../../components/Structure/Container"
 import { ApiClient } from "../../_services"
 
 const Account: NextPage = ({ user }: any) => {
-  console.log(user)
   const [afterCreateOffer, setAfterCreateOffer] = useState<boolean>(false)
   const router = useRouter()
   useEffect(() => {

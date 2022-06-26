@@ -103,7 +103,9 @@ const Profile = ({ user }: any) => {
                 favoritos
               </h2>
             </div>
-            <p className="leading-relaxed text-base">você favoritou 14 autos</p>
+            <p className="leading-relaxed text-base">
+              {"você favoritou X autos (em breve)"}
+            </p>
             <a className="mt-3 text-indigo-500 inline-flex items-center">
               ver todos
               <svg

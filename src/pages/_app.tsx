@@ -17,7 +17,6 @@ export default class MyApp extends App {
   }
   render() {
     const { Component, pageProps } = this.props
-    console.log(this.props)
     return (
       <SessionProvider session={pageProps.session} refetchInterval={0}>
         <React.Fragment>

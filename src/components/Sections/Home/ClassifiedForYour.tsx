@@ -1,13 +1,8 @@
 import React from "react"
 import { baseImageURL } from "../../../lib/api"
-import { Offer } from "../../../types/Offer"
 import { formatToBRL } from "../../../_utils"
 
-type Offers = {
-  offers: Offer[]
-}
-
-const ClassifiedForYour = ({ offers }: Offers) => {
+const ClassifiedForYour = ({ offers }: any) => {
   return offers?.length > 5 ? (
     <div className="text-gray-600 w-full overflow-hidden">
       <div className="container px-5 py-24 mx-auto flex flex-wrap">
@@ -16,8 +11,8 @@ const ClassifiedForYour = ({ offers }: Offers) => {
             selecionamos esses pra você
           </h1>
           <p className="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-end">
-            os mais vistos de hoje e que ainda não foram vendidos, tá esperando
-            o quê?!
+            os que acabaram de chegar e que ainda não foram vendidos, tá
+            esperando o quê?!
           </p>
         </div>
         <div className="flex flex-wrap md:-m-2">
@@ -29,14 +24,14 @@ const ClassifiedForYour = ({ offers }: Offers) => {
                   transition ease-in-out hover:text-white "
                   style={{ padding: "7%" }}
                 >
-                  <h3 className="">{offers[0].title}</h3>
-                  <p className="">{formatToBRL(offers[0].price)}</p>
+                  <h3 className="">{offers.at(-1).title}</h3>
+                  <p className="">{formatToBRL(offers.at(-1).price)}</p>
                 </div>
               </div>
               <img
                 alt="gallery"
                 className="w-full object-cover h-full object-center block"
-                src={baseImageURL + offers[0].picture}
+                src={baseImageURL + offers.at(-1).picture}
               />
             </div>
             <div className="w-1/2 relative flex justify-center items-center hover:scale-[1.01] transition-all">
@@ -46,14 +41,14 @@ const ClassifiedForYour = ({ offers }: Offers) => {
                   transition ease-in-out hover:text-white"
                   style={{ padding: "7%" }}
                 >
-                  <h3 className="">{offers[1].title}</h3>
-                  <p className="">{formatToBRL(offers[1].price)}</p>
+                  <h3 className="">{offers.at(-2).title}</h3>
+                  <p className="">{formatToBRL(offers.at(-2).price)}</p>
                 </div>
               </div>
               <img
                 alt="gallery"
                 className="w-full object-cover h-full object-center block"
-                src={baseImageURL + offers[1].picture}
+                src={baseImageURL + offers.at(-2).picture}
               />
             </div>
             <div className="w-full relative flex justify-center items-center hover:scale-[1.01] transition-all">
@@ -63,14 +58,14 @@ const ClassifiedForYour = ({ offers }: Offers) => {
                   transition ease-in-out hover:text-white"
                   style={{ padding: "7%" }}
                 >
-                  <h3 className="">{offers[2].title}</h3>
-                  <p className="">{formatToBRL(offers[2].price)}</p>
+                  <h3 className="">{offers.at(-3).title}</h3>
+                  <p className="">{formatToBRL(offers.at(-3).price)}</p>
                 </div>
               </div>
               <img
                 alt="gallery"
                 className="w-full h-full object-cover object-center block"
-                src={baseImageURL + offers[2].picture}
+                src={baseImageURL + offers.at(-3).picture}
               />
             </div>
           </div>
@@ -82,14 +77,14 @@ const ClassifiedForYour = ({ offers }: Offers) => {
                   transition ease-in-out hover:text-white "
                   style={{ padding: "7%" }}
                 >
-                  <h3 className="">{offers[3].title}</h3>
-                  <p className="">{formatToBRL(offers[3].price)}</p>
+                  <h3 className="">{offers.at(-4).title}</h3>
+                  <p className="">{formatToBRL(offers.at(-4).price)}</p>
                 </div>
               </div>
               <img
                 alt="gallery"
                 className="w-full h-full object-cover object-center block"
-                src={baseImageURL + offers[3].picture}
+                src={baseImageURL + offers.at(-4).picture}
               />
             </div>
             <div className="w-1/2 relative flex justify-center items-center hover:scale-[1.01] transition-all">
@@ -99,14 +94,14 @@ const ClassifiedForYour = ({ offers }: Offers) => {
                   transition ease-in-out hover:text-white"
                   style={{ padding: "7%" }}
                 >
-                  <h3 className="">{offers[4].title}</h3>
-                  <p className="">{formatToBRL(offers[4].price)}</p>
+                  <h3 className="">{offers.at(-5).title}</h3>
+                  <p className="">{formatToBRL(offers.at(-5).price)}</p>
                 </div>
               </div>
               <img
                 alt="gallery"
                 className="w-full object-cover h-full object-center block"
-                src={baseImageURL + offers[4].picture}
+                src={baseImageURL + offers.at(-5).picture}
               />
             </div>
             <div className="w-1/2 relative flex justify-center items-center hover:scale-[1.01] transition-all">
@@ -116,14 +111,14 @@ const ClassifiedForYour = ({ offers }: Offers) => {
                   transition ease-in-out hover:text-white"
                   style={{ padding: "7%" }}
                 >
-                  <h3 className="">{offers[5].title}</h3>
-                  <p className="">{formatToBRL(offers[5].price)}</p>
+                  <h3 className="">{offers.at(-6).title}</h3>
+                  <p className="">{formatToBRL(offers.at(-6).price)}</p>
                 </div>
               </div>
               <img
                 alt="gallery"
                 className="w-full object-cover h-full object-center block"
-                src={baseImageURL + offers[5].picture}
+                src={baseImageURL + offers.at(-6).picture}
               />
             </div>
           </div>
