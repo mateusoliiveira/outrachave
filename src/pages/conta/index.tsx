@@ -38,6 +38,9 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
     ...data[0],
     offers: JSON.parse(data["offers"]),
   }
+  console.log(data)
+  console.log("------")
+  console.log(newData)
   return {
     props: {
       user: newData,
