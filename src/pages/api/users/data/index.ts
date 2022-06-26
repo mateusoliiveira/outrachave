@@ -12,7 +12,11 @@ export default async function handler(
             const { data } = await ApiServer.get(`/users/data`, {
                 headers: { Authorization: 'Bearer ' + token }
             })
-            res.status(200).json(data)
+            const newData = {
+                ...data[0],
+                offers: JSON.parse(data['offers'])
+            }
+            res.status(200).json(newData)
         } catch (error: any) {
             res.status(error.response.status).json(error.response.data)
         }
