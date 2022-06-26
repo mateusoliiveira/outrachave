@@ -46,7 +46,7 @@ const FindCars = (props: any) => {
       <div className="w-50 flex justify-center">
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="md:flex justify-content-center gap-5">
-            <div className="mb-20">
+            <div className="mb-20 md:mb-10 lg:mb-0">
               <TextInput
                 helperText="busque por modelo de automóvel"
                 placeholder="Argo 1.6"
