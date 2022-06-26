@@ -1,4 +1,3 @@
-import { Tabs } from "flowbite-react"
 import { signOut } from "next-auth/react"
 import Link from "next/link"
 import React from "react"
@@ -8,31 +7,35 @@ import { formatToBRL, hideData, hideEmail } from "../../../_utils"
 const Profile = ({ user }: any) => {
   return (
     <div className="col lg:flex">
-      {Array.isArray(user.offers) && user.offers?.length > 0 ? (
-        <Link href={`/oferta/${user.offers.at(-1).id}`}>
-          <div className="lg:w-1/2 bg-white p-3 rounded-md">
-            <div className="w-full lg:mb-0 p-1 rounded-lg overflow-hidden">
-              <h3 className="text-midnight text-sm">Seu último anúncio</h3>
-              <hr className="bg-black mb-4 p-[0.5px] shadow-2xl" />
-              <img
-                alt="feature"
-                className="object-cover object-center rounded-md h-full w-full"
-                src={`${baseImageURL + user.offers.at(-1).picture}`}
-              />
-              <h3 className="text-midnight pt-3">{user.offers.at(-1).title}</h3>
-              <h2 className="text-midnight text-md">
-                {formatToBRL(user.offers.at(-1).price)}
-              </h2>
+      <div className="hidden">
+        {Array.isArray(user.offers) && user.offers?.length > 0 ? (
+          <Link href={`/oferta/${user.offers.at(-1).id}`}>
+            <div className="lg:w-1/2 bg-white p-3 rounded-md">
+              <div className="w-full lg:mb-0 p-1 rounded-lg overflow-hidden">
+                <h3 className="text-midnight text-sm">Seu último anúncio</h3>
+                <hr className="bg-black mb-4 p-[0.5px] shadow-2xl" />
+                <img
+                  alt="feature"
+                  className="object-cover object-center rounded-md h-full w-full"
+                  src={`${baseImageURL + user.offers.at(-1).picture}`}
+                />
+                <h3 className="text-midnight pt-3">
+                  {user.offers.at(-1).title}
+                </h3>
+                <h2 className="text-midnight text-md">
+                  {formatToBRL(user.offers.at(-1).price)}
+                </h2>
+              </div>
             </div>
-          </div>
-        </Link>
-      ) : (
-        <Link href={`/oferta/nova`}>
-          <p className="font-extrabold text-purple-500">
-            parece que você ainda não publicou nada, que tal mudar isso aqui?
-          </p>
-        </Link>
-      )}
+          </Link>
+        ) : (
+          <Link href={`/oferta/nova`}>
+            <p className="font-extrabold text-purple-500">
+              parece que você ainda não publicou nada, que tal mudar isso aqui?
+            </p>
+          </Link>
+        )}
+      </div>
 
       <div className="flex flex-col lg:py-3 -mb-10 lg:pl-12 pl-5 pt-10 rounded-md my-3 lg:text-left bg-white w-full lg:bg-transparent lg:w-1/2 items-start">
         <div className="flex flex-col mb-10 lg:items-start items-center">
