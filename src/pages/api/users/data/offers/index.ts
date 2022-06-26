@@ -7,13 +7,12 @@ export default async function handler(
     res: NextApiResponse<any>
 ) {
     const { token }: any = await getToken({ req })
-    console.log(token)
     if (req.method == 'GET') {
         try {
             const { data } = await ApiServer.get(`/users/data/offers`, {
                 headers: { Authorization: 'Bearer ' + token }
             })
-            res.status(200).json(data)
+            return res.status(200).json(data)
         } catch (error: any) {
             res.status(error.response.status).json(error.response.data)
         }

@@ -1,5 +1,4 @@
 import { GetServerSideProps, NextPage } from "next"
-import { getToken } from "next-auth/jwt"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import Feedback from "../../components/Feedback"
@@ -31,10 +30,9 @@ const Account: NextPage = ({ user }: any) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req }: any) => {
-  const { token }: any = getToken({ req })
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const { data } = await ApiClient.get("/users/data/offers", {
-    headers: { Authorization: "Bearer " + token },
+    headers: { ...context.req.headers },
   })
   console.log(data)
   return {
