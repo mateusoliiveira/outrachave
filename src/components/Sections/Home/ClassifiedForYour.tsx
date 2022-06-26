@@ -8,8 +8,8 @@ type Offers = {
 }
 
 const ClassifiedForYour = ({ offers }: Offers) => {
-  return (
-    <section className="text-gray-600 w-full overflow-hidden">
+  return offers?.length > 5 ? (
+    <div className="text-gray-600 w-full overflow-hidden">
       <div className="container px-5 py-24 mx-auto flex flex-wrap">
         <div className="flex w-full mb-20 flex-wrap border-b-orange-400">
           <h1 className="sm:text-3xl text-2xl font-semibold text-gray-100 lg:w-1/3 lg:mb-0 mb-4">
@@ -129,7 +129,9 @@ const ClassifiedForYour = ({ offers }: Offers) => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  ) : (
+    ""
   )
 }
 

@@ -19,7 +19,7 @@ const HeroAccount = ({ user }: any) => {
         </Tabs.Item>
         <Tabs.Item title="Meus anúncios">
           <Tab>
-            <Published offers={user.offers} />
+            <Published offers={user?.offers} />
           </Tab>
         </Tabs.Item>
       </Tabs.Group>
