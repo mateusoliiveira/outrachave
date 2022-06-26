@@ -1,5 +1,5 @@
-import { Accordion, TextInput } from "flowbite-react"
-import React, { ChangeEvent, useEffect, useState } from "react"
+import { Accordion, Label, Radio, TextInput } from "flowbite-react"
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import CardCar from "./CardCar"
 import ScrollCars from "./ScrollCars"
 
@@ -7,10 +7,14 @@ const CarsForSale = ({ cars, query }: any) => {
   const [carsList, setCarsList] = useState<any[]>(cars)
   const [filters, setFilters] = useState<any>({
     model: "",
-    year_start: 1950,
-    year_end: new Date().getFullYear(),
-    price_start: 0,
-    price_end: 0,
+    doors: undefined,
+    liters: undefined,
+    cylinders: undefined,
+    year_start: 1900,
+    year_end: 2022,
+    price_start: undefined,
+    price_end: undefined,
+    is_automatic: undefined,
   })
 
   const allOrFiltered = () => {
@@ -24,7 +28,27 @@ const CarsForSale = ({ cars, query }: any) => {
 
     if (filters.year_start <= filters.year_end) {
       toFilter = toFilter.filter(
-        (car) => car.year >= filters.year_start && car.year <= filters.year_end
+        (car) =>
+          Number(car.year) >= Number(filters.year_start) &&
+          Number(car.year) <= Number(filters.year_end)
+      )
+    }
+
+    if (filters.liters && parseFloat(filters.liters) > 0) {
+      toFilter = toFilter.filter(
+        (car) => parseFloat(car.liters) === parseFloat(filters.liters)
+      )
+    }
+
+    if (filters.horsepower && Number(filters.horsepower) > 0) {
+      toFilter = toFilter.filter(
+        (car) => Number(car.horsepower) >= Number(filters.horsepower)
+      )
+    }
+
+    if (filters.gearbox) {
+      toFilter = toFilter.filter((car) =>
+        filters.gearbox === 2 ? toFilter : car.is_automatic == filters.gearbox
       )
     }
 
@@ -58,12 +82,27 @@ const CarsForSale = ({ cars, query }: any) => {
                   />
                 </div>
                 <div className="flex row justify-evenly lg:justify-center gap-1">
-                  <TextInput id="doors" type="number" placeholder="portas" />
+                  <TextInput
+                    id="doors"
+                    type="number"
+                    placeholder="portas"
+                    onChange={(e) =>
+                      setFilters({
+                        ...filters,
+                        doors: Number(e.target.value),
+                      })
+                    }
+                  />
                   <TextInput
                     id="liters"
                     type="number"
-                    step={0.1}
                     placeholder="litragem"
+                    onChange={(e) =>
+                      setFilters({
+                        ...filters,
+                        liters: parseFloat(e.target.value),
+                      })
+                    }
                   />
                 </div>
               </form>
@@ -82,10 +121,7 @@ const CarsForSale = ({ cars, query }: any) => {
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
                       setFilters({
                         ...filters,
-                        year_start:
-                          Number(e.target.value) < filters.year_start
-                            ? 1950
-                            : Number(e.target.value),
+                        year_start: Number(e.target.value),
                       })
                     }
                   />
@@ -97,10 +133,7 @@ const CarsForSale = ({ cars, query }: any) => {
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
                       setFilters({
                         ...filters,
-                        year_end:
-                          Number(e.target.value) > filters.year_end
-                            ? new Date().getFullYear()
-                            : Number(e.target.value),
+                        year_end: Number(e.target.value),
                       })
                     }
                   />
@@ -117,8 +150,24 @@ const CarsForSale = ({ cars, query }: any) => {
                     id="cylinders"
                     type="number"
                     placeholder="cilindros"
+                    onChange={(e) =>
+                      setFilters({
+                        ...filters,
+                        cylinders: Number(e.target.value),
+                      })
+                    }
                   />
-                  <TextInput id="cylinders" type="number" placeholder="hp" />
+                  <TextInput
+                    id="cylinders"
+                    type="number"
+                    placeholder="até ... cavalos"
+                    onChange={(e) =>
+                      setFilters({
+                        ...filters,
+                        horsepower: Number(e.target.value),
+                      })
+                    }
+                  />
                 </div>
               </form>
             </Accordion.Content>
@@ -126,31 +175,29 @@ const CarsForSale = ({ cars, query }: any) => {
           <Accordion.Panel>
             <Accordion.Title>Câmbio</Accordion.Title>
             <Accordion.Content>
-              <form className="flex-col justify-center gap-4 text-red-600 font-bold ">
-                <div className="flex row justify-evenly lg:justify-center gap-1">
-                  <TextInput
-                    id="cylinders"
-                    type="number"
-                    placeholder="cilindros"
-                  />
-                  <TextInput id="cylinders" type="number" placeholder="hp" />
+              <fieldset
+                className="flex flex-col gap-4"
+                id="radio"
+                onChange={(e: any) =>
+                  setFilters({
+                    ...filters,
+                    gearbox: Number(e.target.value),
+                  })
+                }
+              >
+                <div className="flex items-center gap-2">
+                  <Radio id="germany" name="countries" value={0} />
+                  <Label htmlFor="germany">Manual</Label>
                 </div>
-              </form>
-            </Accordion.Content>
-          </Accordion.Panel>
-          <Accordion.Panel>
-            <Accordion.Title>Quilômetros rodados</Accordion.Title>
-            <Accordion.Content>
-              <form className="flex-col justify-center gap-4 text-red-600 font-bold ">
-                <div className="flex row justify-evenly lg:justify-center gap-1">
-                  <TextInput
-                    id="cylinders"
-                    type="number"
-                    placeholder="cilindros"
-                  />
-                  <TextInput id="cylinders" type="number" placeholder="hp" />
+                <div className="flex items-center gap-2">
+                  <Radio id="spain" name="countries" value={1} />
+                  <Label htmlFor="spain">Automático</Label>
                 </div>
-              </form>
+                <div className="flex items-center gap-2">
+                  <Radio id="uk" name="countries" value={2} />
+                  <Label htmlFor="uk">Todos</Label>
+                </div>
+              </fieldset>
             </Accordion.Content>
           </Accordion.Panel>
         </Accordion>
