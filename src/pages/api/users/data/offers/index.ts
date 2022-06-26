@@ -9,10 +9,10 @@ export default async function handler(
     const { token }: any = await getToken({ req })
     if (req.method == 'GET') {
         try {
-            const { data } = await ApiServer.get(`/users/data/offers`, {
+            return await ApiServer.get(`/users/data/offers`, {
                 headers: { Authorization: 'Bearer ' + token }
             })
-            return res.status(200).json(data)
+
         } catch (error: any) {
             res.status(error.response.status).json(error.response.data)
         }
