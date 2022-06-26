@@ -33,7 +33,12 @@ const FindCars = (props: any) => {
                 helperText="busque por modelo de automóvel"
                 placeholder="Argo 1.6"
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  setKeywordModel(e.target.value)
+                  setKeywordModel(
+                    `${
+                      e.target.value.split(e.target.value[1])[0].toUpperCase() +
+                      e.target.value.slice(1)
+                    }`
+                  )
                 }
               />
               <div className="pt-2">
