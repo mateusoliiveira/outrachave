@@ -1,24 +1,26 @@
 import { GetServerSideProps, NextPage } from "next"
 import Container from "../../../components/Structure/Container"
-import { Brand } from "../../../types/Brand"
 import { ApiClient } from "../../../_services"
-import { Offer } from "../../../types/Offer"
 import OfferPublished from "../../../components/Sections/Offer/Published/OfferPublished"
 
-const OfferPage: NextPage = ({ offer }: any) => {
+const OfferPage: NextPage = ({ offer, locate }: any) => {
   return (
     <Container>
-      <OfferPublished offer={offer} />
+      <OfferPublished offer={offer} locate={locate} />
     </Container>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const offer = await ApiClient.get(`/offers/${query.id}`)
-  console.log(offer)
+  const location = await fetch(
+    `https://viacep.com.br/ws/${offer.data.zip_code}/json/`
+  )
+  const locationJSON = await location.json()
   return {
     props: {
       offer: offer.data,
+      locate: locationJSON,
     },
   }
 }

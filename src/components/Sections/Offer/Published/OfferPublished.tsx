@@ -18,9 +18,8 @@ import {
   formatToBRL,
   formatZipCode,
 } from "../../../../_utils"
-import Horse from "../../../Horse"
 
-const OfferPublished = ({ offer }: any) => {
+const OfferPublished = ({ offer, locate }: any) => {
   return (
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
@@ -103,11 +102,8 @@ const OfferPublished = ({ offer }: any) => {
               {offer.description}
             </p>
             <div className="flex flex-wrap gap-2">
-              <Badge color="success" size="sm">
-                {formatPhone(offer.contact)}
-              </Badge>
               <Badge color="info" size="sm">
-                {formatZipCode(offer.zip_code)}
+                {`${locate?.localidade}, ${locate?.uf}`}
               </Badge>
             </div>
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5"></div>
@@ -115,21 +111,23 @@ const OfferPublished = ({ offer }: any) => {
               <span className="title-font text-2xl font-extrabold text-gray-200">
                 {formatToBRL(offer.price)}
               </span>
-              <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-                Button
-              </button>
-              <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                <svg
-                  fill="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  className="w-5 h-5"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                </svg>
-              </button>
+              <a
+                href={`https://api.whatsapp.com/send?phone=55${offer.contact}&text=Gostaria%20de%20saber%20mais%20sobre%20seu/sua%20${offer.vehicles.name}%20a%20venda.%20Podemos%20conversar?`}
+                className="ml-auto"
+              >
+                <button className="flex ml-auto bg-white border-0 py-2 px-8 focus:outline-none hover:scale-105 transition-all rounded">
+                  <svg
+                    fill="#35D24D"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 30 30"
+                    width="30px"
+                    height="30px"
+                    className="drop-shadow-md"
+                  >
+                    <path d="M 15 3 C 8.373 3 3 8.373 3 15 C 3 17.251208 3.6323415 19.350068 4.7109375 21.150391 L 3.1074219 27 L 9.0820312 25.431641 C 10.829354 26.425062 12.84649 27 15 27 C 21.627 27 27 21.627 27 15 C 27 8.373 21.627 3 15 3 z M 10.892578 9.4023438 C 11.087578 9.4023438 11.287937 9.4011562 11.460938 9.4101562 C 11.674938 9.4151563 11.907859 9.4308281 12.130859 9.9238281 C 12.395859 10.509828 12.972875 11.979906 13.046875 12.128906 C 13.120875 12.277906 13.173313 12.453437 13.070312 12.648438 C 12.972312 12.848437 12.921344 12.969484 12.777344 13.146484 C 12.628344 13.318484 12.465078 13.532109 12.330078 13.662109 C 12.181078 13.811109 12.027219 13.974484 12.199219 14.271484 C 12.371219 14.568484 12.968563 15.542125 13.851562 16.328125 C 14.986562 17.342125 15.944188 17.653734 16.242188 17.802734 C 16.540187 17.951734 16.712766 17.928516 16.884766 17.728516 C 17.061766 17.533516 17.628125 16.864406 17.828125 16.566406 C 18.023125 16.268406 18.222188 16.319969 18.492188 16.417969 C 18.766188 16.515969 20.227391 17.235766 20.525391 17.384766 C 20.823391 17.533766 21.01875 17.607516 21.09375 17.728516 C 21.17075 17.853516 21.170828 18.448578 20.923828 19.142578 C 20.676828 19.835578 19.463922 20.505734 18.919922 20.552734 C 18.370922 20.603734 17.858562 20.7995 15.351562 19.8125 C 12.327563 18.6215 10.420484 15.524219 10.271484 15.324219 C 10.122484 15.129219 9.0605469 13.713906 9.0605469 12.253906 C 9.0605469 10.788906 9.8286563 10.071437 10.097656 9.7734375 C 10.371656 9.4754375 10.692578 9.4023438 10.892578 9.4023438 z" />
+                  </svg>
+                </button>
+              </a>
             </div>
           </div>
         </div>

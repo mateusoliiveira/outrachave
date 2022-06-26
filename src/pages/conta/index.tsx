@@ -6,7 +6,7 @@ import HeroAccount from "../../components/Sections/Account/HeroAccount"
 import Container from "../../components/Structure/Container"
 import { ApiClient } from "../../_services"
 
-const Account: NextPage = ({ user, offers }: any) => {
+const Account: NextPage = ({ user }: any) => {
   console.log(user)
   const [afterCreateOffer, setAfterCreateOffer] = useState<boolean>(false)
   const router = useRouter()
@@ -25,7 +25,7 @@ const Account: NextPage = ({ user, offers }: any) => {
           ""
         )}
       </div>
-      <HeroAccount user={user} offers={offers} />
+      <HeroAccount user={user} offers={[]} />
     </Container>
   )
 }
@@ -34,14 +34,9 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const { data } = await ApiClient.get("/users/data", {
     headers: { ...context.req.headers },
   })
-  const offers = await ApiClient.get("/users/offers", {
-    headers: { ...context.req.headers },
-  })
-
   return {
     props: {
       user: data,
-      offers: offers.data,
     },
   }
 }
