@@ -38,8 +38,8 @@ const CarsForSale = ({ cars, query }: any) => {
     if (filters.price_start <= filters.price_end) {
       toFilter = toFilter.filter(
         (car) =>
-          parseFloat(car.vehicles.price) >= parseFloat(filters.price_start) &&
-          parseFloat(car.vehicles.price) <= parseFloat(filters.price_end)
+          parseFloat(car.price) >= parseFloat(filters.price_start) &&
+          parseFloat(car.price) <= parseFloat(filters.price_end)
       )
     }
 
@@ -56,17 +56,23 @@ const CarsForSale = ({ cars, query }: any) => {
       )
     }
 
+    if (filters.doors && Number(filters.doors) > 0) {
+      toFilter = toFilter.filter(
+        (car) => Number(car.vehicles.doors) === Number(filters.doors)
+      )
+    }
+
     if (filters.horsepower && Number(filters.horsepower) > 0) {
       toFilter = toFilter.filter(
         (car) => Number(car.vehicles.horsepower) >= Number(filters.horsepower)
       )
     }
 
-    if (filters.gearbox) {
+    if (filters.is_automatic) {
       toFilter = toFilter.filter((car) =>
-        filters.gearbox === 2
+        filters.is_automatic === 2
           ? toFilter
-          : car.vehicles.is_automatic == filters.gearbox
+          : car.vehicles.is_automatic == filters.is_automatic
       )
     }
 
@@ -236,7 +242,7 @@ const CarsForSale = ({ cars, query }: any) => {
             <Accordion.Title>Câmbio</Accordion.Title>
             <Accordion.Content>
               <fieldset
-                className="flex flex-col gap-4"
+                className="flex flex-col gap-4 w-screen"
                 id="radio"
                 onChange={(e: any) =>
                   setFilters({
