@@ -52,6 +52,10 @@ const CarsForSale = ({ cars, query }: any) => {
       )
     }
 
+    console.log(toFilter)
+    console.log("-----filters-----")
+    console.log(filters)
+
     return toFilter
   }
 
