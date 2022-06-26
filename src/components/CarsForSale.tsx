@@ -14,9 +14,9 @@ const CarsForSale = ({ cars, query }: any) => {
     price_start: undefined,
     price_end: undefined,
     horsepower: undefined,
+    is_automatic: undefined,
     year_start: 1900,
     year_end: 2022,
-    is_automatic: 2,
   })
 
   const allOrFiltered = () => {
