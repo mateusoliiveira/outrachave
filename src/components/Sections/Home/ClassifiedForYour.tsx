@@ -19,7 +19,7 @@ const ClassifiedForYour = ({ offers }: any) => {
         <div className="flex flex-wrap md:-m-2">
           <div className="flex flex-wrap w-1/2">
             <Link href={`/oferta/${offers.at(-1).id}`}>
-              <div className="p-auto w-1/2 relative flex justify-center items-center hover:scale-[1.01] transition-all">
+              <div className="p-auto w-1/2 relative flex justify-center cursor-pointer items-center hover:scale-[1.01] transition-all">
                 <div className="absolute p-0 flex h-full w-full transition ease-in-out hover:bg-gradient-to-t from-[#EF5F67] to-transparent">
                   <div
                     className="md:flex-1 f-row-col overflow-hidden mb-2 text-xs md:text-md lg:text-2xl font-extrabold text-transparent 
@@ -38,7 +38,7 @@ const ClassifiedForYour = ({ offers }: any) => {
               </div>
             </Link>
             <Link href={`/oferta/${offers.at(-2).id}`}>
-              <div className="w-1/2 relative flex justify-center items-center hover:scale-[1.01] transition-all">
+              <div className="w-1/2 relative flex justify-center cursor-pointer items-center hover:scale-[1.01] transition-all">
                 <div className="absolute p-0 flex h-full w-full transition ease-in-out hover:bg-gradient-to-t from-[#EF5F67] to-transparent">
                   <div
                     className="md:flex-1 f-row-col overflow-hidden mb-2 text-xs md:text-md lg:text-2xl font-extrabold text-transparent 
@@ -57,7 +57,7 @@ const ClassifiedForYour = ({ offers }: any) => {
               </div>
             </Link>
             <Link href={`/oferta/${offers.at(-3).id}`}>
-              <div className="w-full relative flex justify-center items-center hover:scale-[1.01] transition-all">
+              <div className="w-full relative flex justify-center cursor-pointer items-center hover:scale-[1.01] transition-all">
                 <div className="absolute p-0 flex h-full w-full transition ease-in-out hover:bg-gradient-to-t from-[#EF5F67] to-transparent">
                   <div
                     className="md:flex-1 flex-col  overflow-hiddenmb-2 text-xs md:text-md lg:text-2xl font-extrabold text-transparent 
@@ -78,7 +78,7 @@ const ClassifiedForYour = ({ offers }: any) => {
           </div>
           <div className="flex flex-wrap w-1/2">
             <Link href={`/oferta/${offers.at(-4).id}`}>
-              <div className="w-full relative flex justify-center items-center hover:scale-[1.01] transition-all">
+              <div className="w-full relative flex justify-center cursor-pointer items-center hover:scale-[1.01] transition-all">
                 <div className="absolute p-0 flex h-full w-full transition ease-in-out hover:bg-gradient-to-t from-[#EF5F67] to-transparent">
                   <div
                     className="md:flex-1 flex-col  overflow-hiddenmb-2 text-xs md:text-md lg:text-2xl font-extrabold text-transparent 
@@ -97,7 +97,7 @@ const ClassifiedForYour = ({ offers }: any) => {
               </div>
             </Link>
             <Link href={`/oferta/${offers.at(-5).id}`}>
-              <div className="w-1/2 relative flex justify-center items-center hover:scale-[1.01] transition-all">
+              <div className="w-1/2 relative flex justify-center cursor-pointer items-center hover:scale-[1.01] transition-all">
                 <div className="absolute p-0 flex h-full w-full transition ease-in-out hover:bg-gradient-to-t from-[#EF5F67] to-transparent">
                   <div
                     className="md:flex-1 flex-col  overflow-hiddenmb-2 text-xs md:text-md lg:text-2xl font-extrabold text-transparent 
@@ -116,7 +116,7 @@ const ClassifiedForYour = ({ offers }: any) => {
               </div>
             </Link>
             <Link href={`/oferta/${offers.at(-6).id}`}>
-              <div className="w-1/2 relative flex justify-center items-center hover:scale-[1.01] transition-all">
+              <div className="w-1/2 relative flex justify-center cursor-pointer items-center hover:scale-[1.01] transition-all">
                 <div className="absolute p-0 flex h-full w-full transition ease-in-out hover:bg-gradient-to-t from-[#EF5F67] to-transparent">
                   <div
                     className="md:flex-1 flex-col  overflow-hiddenmb-2 text-xs md:text-md lg:text-2xl font-extrabold text-transparent 
