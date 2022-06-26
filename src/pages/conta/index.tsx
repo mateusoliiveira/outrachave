@@ -34,9 +34,12 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const dataUser = await ApiClient.get("/users/data", {
     headers: { ...context.req.headers },
   })
-  const dataOffers = await ApiClient.get("/users/data", {
-    headers: { ...context.req.headers },
-  })
+  const dataOffers = await ApiClient.get(
+    "/offers/by/user/" + dataUser.data.id,
+    {
+      headers: { ...context.req.headers },
+    }
+  )
   return {
     props: {
       user: { ...dataUser.data, offers: { ...dataOffers.data } },
