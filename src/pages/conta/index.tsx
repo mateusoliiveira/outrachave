@@ -34,10 +34,13 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const { data } = await ApiClient.get("/users/data", {
     headers: { ...context.req.headers },
   })
-  console.log(JSON.parse(data.offers))
+  const newData = {
+    ...data[0],
+    offers: JSON.parse(data["offers"]),
+  }
   return {
     props: {
-      user: data,
+      user: newData,
     },
   }
 }
