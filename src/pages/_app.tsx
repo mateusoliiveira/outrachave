@@ -1,19 +1,9 @@
-import ReactDOM from "react-dom"
-import Router from "next/router"
-import PageChangeComponent from "../components/Structure/PageChange/PageChange"
 import App from "next/app"
 import Head from "next/head"
 import React from "react"
 import Wrapper from "./../components/Structure/Wrapper"
 import "../styles/index.css"
 import { SessionProvider } from "next-auth/react"
-
-Router.events.on("routeChangeStart", () => {
-  ReactDOM.render(
-    <PageChangeComponent />,
-    document.getElementById("splash-loading")
-  )
-})
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }: any) {
@@ -27,7 +17,7 @@ export default class MyApp extends App {
   }
   render() {
     const { Component, pageProps } = this.props
-
+    console.log(this.props)
     return (
       <SessionProvider session={pageProps.session} refetchInterval={0}>
         <React.Fragment>

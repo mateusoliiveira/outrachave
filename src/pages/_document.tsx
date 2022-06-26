@@ -29,7 +29,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <div id="splash-loading"></div>
         </body>
       </Html>
     )
