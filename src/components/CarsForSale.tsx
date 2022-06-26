@@ -202,17 +202,23 @@ const CarsForSale = ({ cars, query }: any) => {
                   })
                 }
               >
-                <div className="flex items-center gap-2 text-white">
-                  <Radio id="germany" name="countries" value={0} />
-                  <Label htmlFor="germany">Manual</Label>
+                <div className="flex items-center gap-2">
+                  <Radio id="mt" name="countries" value={0} />
+                  <Label className="text-white" htmlFor="mt">
+                    Manual
+                  </Label>
                 </div>
-                <div className="flex items-center gap-2 text-white">
-                  <Radio id="spain" name="countries" value={1} />
-                  <Label htmlFor="spain">Automático</Label>
+                <div className="flex items-center gap-2">
+                  <Radio id="at" name="countries" value={1} />
+                  <Label className="text-white" htmlFor="at">
+                    Automático
+                  </Label>
                 </div>
-                <div className="flex items-center gap-2 text-white">
-                  <Radio id="uk" name="countries" value={2} />
-                  <Label htmlFor="uk">Todos</Label>
+                <div className="flex items-center gap-2">
+                  <Radio id="all" name="countries" value={2} />
+                  <Label className="text-white" htmlFor="all">
+                    Todos
+                  </Label>
                 </div>
               </fieldset>
             </Accordion.Content>
