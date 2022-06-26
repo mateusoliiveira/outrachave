@@ -14,7 +14,7 @@ const CarsForSale = ({ cars, query }: any) => {
     year_end: 2022,
     price_start: undefined,
     price_end: undefined,
-    is_automatic: undefined,
+    is_automatic: 2,
   })
 
   const allOrFiltered = () => {
