@@ -13,7 +13,9 @@ const CardCar = ({ carData }: any) => {
             {`${carData.title}`}
           </h5>
           <h6 className="text-1xl md:text-md font-bold tracking-tight text-gray-700 dark:text-white">
-            {`Branco | AT | ${"2.0"}`}
+            {`${carData.vehicles.doors}p | ${
+              carData.vehicles.is_automatic ? "AT" : "MT"
+            } | ${carData.vehicles.liters}`}
           </h6>
           <span className="text-start text-2xl font-extrabold">
             {formatToBRL(carData.price)}
