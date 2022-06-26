@@ -14,8 +14,8 @@ const Wrapper = ({ children }: ReactChildren) => {
         anúncios são fictícios e as imagens de seus respectivos donos
       </div>
       <div className="bg-gray-900 m-auto text-xs justify-center text-center text-white">
-        modelos disponíveis para busca/publicação: Volkswagen e BMW, modelos
-        disponíveis para busca/publicação: T-Cross, Voyage, Gol, 320i e 318i
+        marcas e modelos disponíveis para busca/publicação: marcas: Volkswagen e
+        BMW | modelos: T-Cross, Voyage, Gol, 320i e 318i
       </div>
       {children}
     </main>
