@@ -11,17 +11,17 @@ const CarsForSale = ({ cars, query }: any) => {
     doors: undefined,
     liters: undefined,
     cylinders: undefined,
-    year_start: 1900,
-    year_end: 2022,
     price_start: undefined,
     price_end: undefined,
+    year_start: 1900,
+    year_end: 2022,
     is_automatic: 2,
   })
 
   const allOrFiltered = () => {
     let toFilter = carsList
 
-    if (filters.name.trim() !== "") {
+    if (filters.name && filters.name.trim() !== "") {
       toFilter = toFilter.filter((car) =>
         car.vehicles.name.toLowerCase().includes(filters.name.toLowerCase())
       )
@@ -32,6 +32,14 @@ const CarsForSale = ({ cars, query }: any) => {
         (car) =>
           Number(car.vehicles.year) >= Number(filters.year_start) &&
           Number(car.vehicles.year) <= Number(filters.year_end)
+      )
+    }
+
+    if (filters.price_start <= filters.price_end) {
+      toFilter = toFilter.filter(
+        (car) =>
+          parseFloat(car.vehicles.price) >= parseFloat(filters.price_start) &&
+          parseFloat(car.vehicles.price) <= parseFloat(filters.price_end)
       )
     }
 
@@ -151,6 +159,41 @@ const CarsForSale = ({ cars, query }: any) => {
                       setFilters({
                         ...filters,
                         year_end: Number(e.target.value),
+                      })
+                    }
+                  />
+                </div>
+              </form>
+            </Accordion.Content>
+          </Accordion.Panel>
+          <Accordion.Panel>
+            <Accordion.Title>Preço</Accordion.Title>
+            <Accordion.Content>
+              <form className="flex-col justify-center gap-4 text-red-600 font-bold ">
+                <div className="flex row justify-evenly lg:justify-center gap-1">
+                  <TextInput
+                    defaultValue={filters.price_start}
+                    id="priceStart"
+                    type="number"
+                    step={0.1}
+                    placeholder="15000"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      setFilters({
+                        ...filters,
+                        price_start: parseFloat(e.target.value),
+                      })
+                    }
+                  />
+                  <TextInput
+                    defaultValue={filters.price_end}
+                    id="priceEnd"
+                    type="number"
+                    step={0.1}
+                    placeholder="36000"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      setFilters({
+                        ...filters,
+                        price_end: parseFloat(e.target.value),
                       })
                     }
                   />
