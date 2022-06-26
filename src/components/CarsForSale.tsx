@@ -21,7 +21,7 @@ const CarsForSale = ({ cars, query }: any) => {
   const allOrFiltered = () => {
     let toFilter = carsList
 
-    if (filters.model.trim() !== "") {
+    if (filters.name.trim() !== "") {
       toFilter = toFilter.filter((car) =>
         car.vehicles.name.toLowerCase().includes(filters.name.toLowerCase())
       )
@@ -87,7 +87,7 @@ const CarsForSale = ({ cars, query }: any) => {
               <form className="flex-col justify-center gap-4 text-red-600 font-bold">
                 <div className="mb-1">
                   <TextInput
-                    id="model"
+                    id="name"
                     type="text"
                     placeholder="modelo"
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
