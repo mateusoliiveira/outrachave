@@ -9,7 +9,7 @@ export const ApiClient: AxiosInstance = axios.create({
     baseURL: clientURLApi,
     headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json;charset=utf-8',
+        'Content-Type': 'application/json',
 
     }
 });
