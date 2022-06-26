@@ -13,6 +13,7 @@ const CarsForSale = ({ cars, query }: any) => {
     cylinders: undefined,
     price_start: undefined,
     price_end: undefined,
+    horsepower: undefined,
     year_start: 1900,
     year_end: 2022,
     is_automatic: 2,
@@ -86,7 +87,7 @@ const CarsForSale = ({ cars, query }: any) => {
 
   return (
     <div className="px-5 lg:flex lg:justify-center gap-5 mt-10">
-      <div className="flex-column">
+      <div className="flex-column mb-6">
         <div className="text-2xl p-3 mb-3 text-gray-50 font-bold bg-gradient-to-r from-red-600 to-orange-200 rounded-lg">
           <p className="text-bold text-sm">filtrando por modelos</p>
           {query}
