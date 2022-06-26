@@ -8,7 +8,7 @@ import { formatToBRL, hideData, hideEmail } from "../../../_utils"
 const Profile = ({ user }: any) => {
   return (
     <div className="col lg:flex">
-      {user.offers.length > 0 ? (
+      {Array.isArray(user.offers) && user.offers?.length > 0 ? (
         <Link href={`/oferta/${user.offers.at(-1).id}`}>
           <div className="lg:w-1/2 bg-white p-3 rounded-md">
             <div className="w-full lg:mb-0 p-1 rounded-lg overflow-hidden">

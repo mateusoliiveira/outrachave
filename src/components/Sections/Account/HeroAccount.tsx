@@ -1,5 +1,4 @@
 import { Tabs } from "flowbite-react"
-import { signOut } from "next-auth/react"
 import React from "react"
 import Profile from "./Profile"
 import Published from "./Published"
