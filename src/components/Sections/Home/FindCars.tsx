@@ -17,6 +17,24 @@ const FindCars = (props: any) => {
     return brandsList
   }
 
+  const keyDownCheck = (e: any) => {
+    var e = window.event || e
+    var key = e.keyCode
+    if (key == 32) {
+      e.preventDefault()
+    }
+  }
+
+  const checkWhitespace = (event: any) => {
+    var data = event.clipboardData.getData("text/plain")
+    var isNullOrContainsWhitespace =
+      !data || data.length === 0 || /\s/g.test(data)
+
+    if (isNullOrContainsWhitespace) {
+      event.preventDefault()
+    }
+  }
+
   return (
     <div className="pt-5">
       <h2
@@ -32,6 +50,8 @@ const FindCars = (props: any) => {
               <TextInput
                 helperText="busque por modelo de automóvel"
                 placeholder="Argo 1.6"
+                onKeyDown={(e) => keyDownCheck(e)}
+                onPaste={(e) => checkWhitespace(e)}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setKeywordModel(
                     `${
