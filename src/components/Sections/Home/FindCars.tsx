@@ -3,8 +3,8 @@ import Link from "next/link"
 import React, { ChangeEvent, useState } from "react"
 import { Brand } from "../../../types/Brand"
 
-const FindCars = ({ brands }: any) => {
-  const [brandsList, setBrandsList] = useState<Brand[]>(brands)
+const FindCars = (props: any) => {
+  const [brandsList, setBrandsList] = useState<Brand[]>(props.brands)
   const [keywordBrand, setKeywordBrand] = useState<string>("")
   const [keywordModel, setKeywordModel] = useState<string>("")
 
