@@ -65,18 +65,15 @@ const CarsForSale = ({ cars, query }: any) => {
 
     if (filters.horsepower && Number(filters.horsepower) > 0) {
       toFilter = toFilter.filter(
-        (car) => Number(car.vehicles.horsepower) >= Number(filters.horsepower)
+        (car) => Number(car.vehicles.horsepower) > Number(filters.horsepower)
       )
     }
 
     if (filters.is_automatic) {
-      toFilter = toFilter.filter((car) =>
-        filters.is_automatic === 2
-          ? toFilter
-          : filters.is_automatic == 1
-          ? car.vehicles.is_automatic
-          : !car.vehicles.is_automatic
-      )
+      toFilter = toFilter.filter((car) => {
+        if (filters.is_automatic === 1) return !car.vehicles.is_automatic
+        if (filters.is_automatic === 2) return car.vehicles.is_automatic
+      })
     }
     return toFilter
   }
@@ -250,19 +247,19 @@ const CarsForSale = ({ cars, query }: any) => {
                 }
               >
                 <div className="flex items-center gap-1">
-                  <Radio id="mt" name="countries" value={0} />
+                  <Radio id="mt" name="countries" value={1} />
                   <Label className="text-white" htmlFor="mt">
                     Manual
                   </Label>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Radio id="at" name="countries" value={1} />
+                  <Radio id="at" name="countries" value={2} />
                   <Label className="text-white" htmlFor="at">
                     Automático
                   </Label>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Radio id="all" name="countries" value={2} />
+                  <Radio id="all" name="countries" value={0} />
                   <Label className="text-white" htmlFor="all">
                     Todos
                   </Label>
