@@ -131,7 +131,7 @@ const ClassifiedForYour = ({ offers }: Offers) => {
       </div>
     </div>
   ) : (
-    ""
+    <div></div>
   )
 }
 
