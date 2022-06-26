@@ -5,8 +5,9 @@ import ScrollCars from "./ScrollCars"
 
 const CarsForSale = ({ cars, query }: any) => {
   const [carsList, setCarsList] = useState<any[]>(cars)
+  const handleEmptyFilter = (value: any) => value ?? undefined
   const [filters, setFilters] = useState<any>({
-    model: "",
+    model: undefined,
     doors: undefined,
     liters: undefined,
     cylinders: undefined,
@@ -31,6 +32,13 @@ const CarsForSale = ({ cars, query }: any) => {
         (car) =>
           Number(car.vehicles.year) >= Number(filters.year_start) &&
           Number(car.vehicles.year) <= Number(filters.year_end)
+      )
+    }
+
+    if (filters.cylinders && parseInt(filters.cylinders) > 0) {
+      toFilter = toFilter.filter(
+        (car) =>
+          parseInt(car.vehicles.cylinders) === parseInt(filters.cylinders)
       )
     }
 
@@ -83,7 +91,10 @@ const CarsForSale = ({ cars, query }: any) => {
                     type="text"
                     placeholder="modelo"
                     onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                      setFilters({ ...filters, model: e.target.value })
+                      setFilters({
+                        ...filters,
+                        model: handleEmptyFilter(e.target.value),
+                      })
                     }
                   />
                 </div>
@@ -95,7 +106,7 @@ const CarsForSale = ({ cars, query }: any) => {
                     onChange={(e) =>
                       setFilters({
                         ...filters,
-                        doors: Number(e.target.value),
+                        doors: handleEmptyFilter(Number(e.target.value)),
                       })
                     }
                   />
@@ -106,7 +117,7 @@ const CarsForSale = ({ cars, query }: any) => {
                     onChange={(e) =>
                       setFilters({
                         ...filters,
-                        liters: parseFloat(e.target.value),
+                        liters: handleEmptyFilter(parseFloat(e.target.value)),
                       })
                     }
                   />
@@ -159,18 +170,18 @@ const CarsForSale = ({ cars, query }: any) => {
                     onChange={(e) =>
                       setFilters({
                         ...filters,
-                        cylinders: Number(e.target.value),
+                        cylinders: handleEmptyFilter(Number(e.target.value)),
                       })
                     }
                   />
                   <TextInput
-                    id="cylinders"
+                    id="horsepowers"
                     type="number"
                     placeholder="até ... cavalos"
                     onChange={(e) =>
                       setFilters({
                         ...filters,
-                        horsepower: Number(e.target.value),
+                        horsepower: handleEmptyFilter(Number(e.target.value)),
                       })
                     }
                   />
@@ -187,7 +198,7 @@ const CarsForSale = ({ cars, query }: any) => {
                 onChange={(e: any) =>
                   setFilters({
                     ...filters,
-                    gearbox: Number(e.target.value),
+                    is_automatic: Number(e.target.value),
                   })
                 }
               >
