@@ -22,33 +22,35 @@ const CarsForSale = ({ cars, query }: any) => {
 
     if (filters.model.trim() !== "") {
       toFilter = toFilter.filter((car) =>
-        car.title.toLowerCase().includes(filters.model.toLowerCase())
+        car.vehicles.name.toLowerCase().includes(filters.model.toLowerCase())
       )
     }
 
     if (filters.year_start <= filters.year_end) {
       toFilter = toFilter.filter(
         (car) =>
-          Number(car.year) >= Number(filters.year_start) &&
-          Number(car.year) <= Number(filters.year_end)
+          Number(car.vehicles.vehicles.year) >= Number(filters.year_start) &&
+          Number(car.vehicles.year) <= Number(filters.year_end)
       )
     }
 
     if (filters.liters && parseFloat(filters.liters) > 0) {
       toFilter = toFilter.filter(
-        (car) => parseFloat(car.liters) === parseFloat(filters.liters)
+        (car) => parseFloat(car.vehicles.liters) === parseFloat(filters.liters)
       )
     }
 
     if (filters.horsepower && Number(filters.horsepower) > 0) {
       toFilter = toFilter.filter(
-        (car) => Number(car.horsepower) >= Number(filters.horsepower)
+        (car) => Number(car.vehicles.horsepower) >= Number(filters.horsepower)
       )
     }
 
     if (filters.gearbox) {
       toFilter = toFilter.filter((car) =>
-        filters.gearbox === 2 ? toFilter : car.is_automatic == filters.gearbox
+        filters.gearbox === 2
+          ? toFilter
+          : car.vehicles.is_automatic == filters.gearbox
       )
     }
 
@@ -219,7 +221,7 @@ const CarsForSale = ({ cars, query }: any) => {
           {carsList &&
             allOrFiltered().map((car) => {
               return (
-                <div key={car.id} className="">
+                <div key={car.vehicles.id} className="">
                   <CardCar carData={car} />
                 </div>
               )
