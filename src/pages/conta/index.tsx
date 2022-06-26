@@ -31,9 +31,8 @@ const Account: NextPage = ({ user }: any) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
-  const { data } = await ApiClient.get("/users/data/offers", {
-    headers: { ...context.req.headers },
-  })
+  const { data } = await ApiClient.get("/users/data/offers")
+  console.log(data)
   return {
     props: {
       user: data,
