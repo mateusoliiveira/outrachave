@@ -89,7 +89,7 @@ const CarsForSale = ({ cars, query }: any) => {
     <div className="px-5 lg:flex lg:justify-center gap-5 mt-10">
       <div className="flex-column mb-6">
         <div className="text-2xl p-3 mb-3 text-gray-50 font-bold bg-gradient-to-r from-red-600 to-orange-200 rounded-lg">
-          <p className="text-bold text-sm">filtrando por modelos</p>
+          <p className="text-bold text-sm">filtrando por</p>
           {query}
         </div>
         <Accordion>
