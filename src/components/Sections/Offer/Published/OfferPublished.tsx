@@ -1,23 +1,7 @@
-import {
-  Badge,
-  Button,
-  Dropdown,
-  Label,
-  Select,
-  TextInput,
-} from "flowbite-react"
+import { Badge, Button } from "flowbite-react"
 import React, { ChangeEvent, useState } from "react"
 import { baseImageURL } from "../../../../lib/api"
-import { Brand } from "../../../../types/Brand"
-import { Category } from "../../../../types/Category"
-import { Offer } from "../../../../types/Offer"
-import { Vehicle } from "../../../../types/Vehicle"
-import {
-  formatDate,
-  formatPhone,
-  formatToBRL,
-  formatZipCode,
-} from "../../../../_utils"
+import { formatDate, formatToBRL, formatZipCode } from "../../../../_utils"
 
 const OfferPublished = ({ offer, locate }: any) => {
   return (
@@ -103,7 +87,7 @@ const OfferPublished = ({ offer, locate }: any) => {
             </p>
             <div className="flex flex-wrap gap-2">
               <Badge color="info" size="sm">
-                {`${locate?.localidade}, ${locate?.uf}`}
+                {formatZipCode(offer.zipcode)}
               </Badge>
             </div>
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5"></div>
