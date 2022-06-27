@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     "Cache-Control",
     "public, s-maxage=30, stale-while-revalidate=180"
   )
-  if (!data) {
+  if (!data || !query) {
     return { notFound: true }
   }
   return {
