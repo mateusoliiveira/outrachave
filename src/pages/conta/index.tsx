@@ -33,6 +33,9 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const { data } = await ApiClient.get("/users/data", {
     headers: { ...context.req.headers },
   })
+  if (!data) {
+    return { notFound: true }
+  }
   return {
     props: {
       user: data,

@@ -12,14 +12,19 @@ const OfferPage: NextPage = ({ offer, locate }: any) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const offer = await ApiClient.get(`/offers/${query.id}`)
+  const { data } = await ApiClient.get(`/offers/${query.id}`)
   const location = await fetch(
-    `https://viacep.com.br/ws/${offer.data.zip_code}/json/`
+    `https://viacep.com.br/ws/${data.zip_code}/json/`
   )
   const locationJSON = await location.json()
+
+  if (!data) {
+    return { notFound: true }
+  }
+
   return {
     props: {
-      offer: offer.data,
+      offer: data,
       locate: locationJSON,
     },
   }

@@ -31,6 +31,11 @@ const Index: NextPage<IndexProps> = ({
 export const getServerSideProps: GetServerSideProps = async () => {
   const brands = await ApiClient.get("/brands")
   const offers = await ApiClient.get("/offers")
+
+  if (!brands || !offers) {
+    return { notFound: true }
+  }
+
   return {
     props: {
       brands: brands.data,

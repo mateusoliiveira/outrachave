@@ -16,7 +16,6 @@ export const getServerSideProps: GetServerSideProps = async (
 ) => {
   const { query } = context
   const { data } = await ApiClient.get(`/offers/by/vehicle/${query.title}`)
-
   if (!data) {
     return { notFound: true }
   }

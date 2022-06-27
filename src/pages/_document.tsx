@@ -8,12 +8,6 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#000000" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap"
-            rel="stylesheet"
-          />
           <link rel="shortcut icon" href="/img/favicon.png" />
           <link
             rel="apple-touch-icon"

@@ -25,6 +25,12 @@ export default class MyApp extends App {
               name="viewport"
               content="width=device-width, initial-scale=1, shrink-to-fit=no"
             />
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap"
+              rel="stylesheet"
+            />
             <title>
               {pageProps.offer
                 ? `${pageProps.offer.title} | ${formatToBRL(
