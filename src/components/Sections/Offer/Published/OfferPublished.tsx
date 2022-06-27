@@ -87,7 +87,7 @@ const OfferPublished = ({ offer, locate }: any) => {
             </p>
             <div className="flex flex-wrap gap-2">
               <Badge color="info" size="sm">
-                {formatZipCode(offer.zipcode)}
+                {formatZipCode(offer.zip_code)}
               </Badge>
             </div>
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5"></div>
