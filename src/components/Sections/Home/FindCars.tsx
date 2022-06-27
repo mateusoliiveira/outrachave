@@ -48,6 +48,7 @@ const FindCars = (props: any) => {
           <div className="md:flex justify-content-center gap-5">
             <div className="mb-20 md:mb-10 lg:mb-0">
               <TextInput
+                required={true}
                 helperText="busque por modelo de automóvel"
                 placeholder="Argo 1.6"
                 onKeyDown={(e) => keyDownCheck(e)}

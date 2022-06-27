@@ -12,15 +12,17 @@ const OfferNew: NextPage = ({ brands, categories, token }: any) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const brands = await ApiClient.get("/brands/vehicles")
   const categories = await ApiClient.get("/categories")
   const { token }: any = await getToken({ req })
-
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=360, stale-while-revalidate=3600"
+  )
   if (!brands || !categories) {
     return { notFound: true }
   }
-
   return {
     props: {
       brands: brands.data,

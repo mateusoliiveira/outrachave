@@ -29,10 +29,17 @@ const Account: NextPage = ({ user }: any) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context: any) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  res,
+}: any) => {
   const { data } = await ApiClient.get("/users/data", {
-    headers: { ...context.req.headers },
+    headers: { ...req.headers },
   })
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=3600, stale-while-revalidate=42200"
+  )
   if (!data) {
     return { notFound: true }
   }

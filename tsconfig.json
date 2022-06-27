@@ -20,7 +20,9 @@
     "next-env.d.ts",
     "next-auth.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/pages/500.tsx",
+    "src/pages/404.tsx"
   ],
   "exclude": ["node_modules"]
 }

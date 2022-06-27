@@ -14,8 +14,12 @@ const SearchBrand: NextPage = ({ query, cars }: any) => {
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  const { query } = context
+  const { query, res } = context
   const { data } = await ApiClient.get(`/offers/by/brand/${query.id}`)
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=30, stale-while-revalidate=180"
+  )
   if (!data) {
     return { notFound: true }
   }
