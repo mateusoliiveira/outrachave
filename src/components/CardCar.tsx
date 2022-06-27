@@ -7,8 +7,12 @@ import { formatToBRL } from "../_utils"
 const CardCar = ({ carData }: any) => {
   return (
     <Link href={`/oferta/${carData.id}`}>
-      <div className="max-w-sm min-h-auto hover:animate-[scaleUp_0.5s_ease-in-out_forwards] p-0.5">
-        <Card imgAlt="Image Car" imgSrc={`${baseImageURL + carData.picture}`}>
+      <div className="max-w-sm h-95 hover:animate-[scaleUp_0.5s_ease-in-out_forwards] p-0.5">
+        <Card
+          imgAlt="Image Car"
+          style={{ minHeight: "100%" }}
+          imgSrc={`${baseImageURL + carData.picture}`}
+        >
           <h5 className="text-1xl md:text-1xl font-bold tracking-tight text-gray-900 dark:text-white truncate">
             {`${carData.title}`}
           </h5>

@@ -281,11 +281,7 @@ const CarsForSale = ({ cars, query }: any) => {
         <ScrollCars>
           {carsList &&
             allOrFiltered().map((car) => {
-              return (
-                <div key={car.vehicles.id} className="">
-                  <CardCar carData={car} />
-                </div>
-              )
+              return <CardCar key={car.vehicles.id} carData={car} />
             })}
         </ScrollCars>
       )}
