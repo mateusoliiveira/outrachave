@@ -63,7 +63,7 @@ const FindCars = (props: any) => {
                 }
               />
               <div className="pt-2 absolute">
-                <Button color="dark">
+                <Button color="dark" disabled={!keywordModel}>
                   <Link href={`/busca/veiculo?title=${keywordModel}`}>
                     <div className="font-bold">buscar</div>
                   </Link>
