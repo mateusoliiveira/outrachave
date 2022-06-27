@@ -6,7 +6,13 @@ const Custom404: NextPage = () => {
   return (
     <Container>
       <Hero />
-      <h1>{"Não encontrado, tente buscar por outros termos"}</h1>
+      <div className=" m-auto text-xs justify-center text-center text-white">
+        <h1>
+          {
+            "Não encontrado, assim o carrinho aí de cima correrá até o infinito!"
+          }
+        </h1>
+      </div>
     </Container>
   )
 }

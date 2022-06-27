@@ -6,7 +6,11 @@ const Custom500: NextPage = () => {
   return (
     <Container>
       <Hero />
-      <h1>{"Ops, erro interno aqui com a gente:(, tente novamente depois"}</h1>
+      <div className=" m-auto text-xs justify-center text-center text-white">
+        <h1>
+          {"Oooops, erro interno aqui com a gente. Desculpe, e já voltamos!"}
+        </h1>
+      </div>
     </Container>
   )
 }
