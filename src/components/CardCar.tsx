@@ -1,7 +1,6 @@
 import { Badge, Card } from "flowbite-react"
 import Link from "next/link"
 import React from "react"
-import { baseImageURL } from "../lib/api"
 import { formatToBRL } from "../_utils"
 
 const CardCar = ({ carData }: any) => {
@@ -11,7 +10,7 @@ const CardCar = ({ carData }: any) => {
         <Card
           imgAlt="Image Car"
           style={{ minHeight: "100%" }}
-          imgSrc={`${baseImageURL + carData.picture}`}
+          imgSrc={carData.picture}
         >
           <h5 className="text-1xl md:text-1xl font-bold tracking-tight text-gray-900 dark:text-white truncate">
             {`${carData.title}`}

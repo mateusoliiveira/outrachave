@@ -1,6 +1,5 @@
 import { Badge, Button } from "flowbite-react"
 import React, { ChangeEvent, useState } from "react"
-import { baseImageURL } from "../../../../lib/api"
 import { formatDate, formatToBRL, formatZipCode } from "../../../../_utils"
 
 const OfferPublished = ({ offer, locate }: any) => {
@@ -11,7 +10,7 @@ const OfferPublished = ({ offer, locate }: any) => {
           <img
             alt="ecommerce"
             className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-            src={`${baseImageURL + offer.picture}`}
+            src={`${offer.picture}`}
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">

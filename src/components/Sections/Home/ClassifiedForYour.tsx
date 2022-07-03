@@ -1,6 +1,5 @@
 import Link from "next/link"
 import React from "react"
-import { baseImageURL } from "../../../lib/api"
 import { formatToBRL } from "../../../_utils"
 
 const ClassifiedForYour = ({ offers }: any) => {
@@ -33,7 +32,7 @@ const ClassifiedForYour = ({ offers }: any) => {
                 <img
                   alt="gallery"
                   className="w-full object-cover h-full object-center block"
-                  src={baseImageURL + offers.at(-1).picture}
+                  src={offers.at(-1).picture}
                 />
               </div>
             </Link>
@@ -52,7 +51,7 @@ const ClassifiedForYour = ({ offers }: any) => {
                 <img
                   alt="gallery"
                   className="w-full object-cover h-full object-center block"
-                  src={baseImageURL + offers.at(-2).picture}
+                  src={offers.at(-2).picture}
                 />
               </div>
             </Link>
@@ -71,7 +70,7 @@ const ClassifiedForYour = ({ offers }: any) => {
                 <img
                   alt="gallery"
                   className="w-full h-full object-cover object-center block"
-                  src={baseImageURL + offers.at(-3).picture}
+                  src={offers.at(-3).picture}
                 />
               </div>
             </Link>
@@ -92,7 +91,7 @@ const ClassifiedForYour = ({ offers }: any) => {
                 <img
                   alt="gallery"
                   className="w-full h-full object-cover object-center block"
-                  src={baseImageURL + offers.at(-4).picture}
+                  src={offers.at(-4).picture}
                 />
               </div>
             </Link>
@@ -111,7 +110,7 @@ const ClassifiedForYour = ({ offers }: any) => {
                 <img
                   alt="gallery"
                   className="w-full object-cover h-full object-center block"
-                  src={baseImageURL + offers.at(-5).picture}
+                  src={offers.at(-5).picture}
                 />
               </div>
             </Link>
@@ -130,7 +129,7 @@ const ClassifiedForYour = ({ offers }: any) => {
                 <img
                   alt="gallery"
                   className="w-full object-cover h-full object-center block"
-                  src={baseImageURL + offers.at(-6).picture}
+                  src={offers.at(-6).picture}
                 />
               </div>
             </Link>

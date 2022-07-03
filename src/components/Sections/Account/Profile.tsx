@@ -1,7 +1,6 @@
 import { signOut } from "next-auth/react"
 import Link from "next/link"
 import React from "react"
-import { baseImageURL } from "../../../lib/api"
 import { formatToBRL, hideData, hideEmail } from "../../../_utils"
 
 const Profile = ({ user }: any) => {
@@ -17,7 +16,7 @@ const Profile = ({ user }: any) => {
                 <img
                   alt="feature"
                   className="object-cover object-center rounded-md h-full w-full"
-                  src={`${baseImageURL + user.offers.at(-1).picture}`}
+                  src={user.offers.at(-1).picture}
                 />
                 <h3 className="text-midnight pt-3">
                   {user.offers.at(-1).title}

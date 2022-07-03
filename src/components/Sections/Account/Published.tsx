@@ -1,5 +1,4 @@
 import React from "react"
-import { baseImageURL } from "../../../lib/api"
 import { formatDate } from "../../../_utils"
 
 const Published = ({ offers }: any) => {
@@ -15,7 +14,7 @@ const Published = ({ offers }: any) => {
                     <img
                       alt="team"
                       className="flex-shrink-0 rounded-lg w-100 h-48 object-cover object-center sm:mb-0 mb-4"
-                      src={`${baseImageURL + offer.picture}`}
+                      src={offer.picture}
                     />
                     <div className="flex-grow sm:pl-8 truncate">
                       <h2 className="title-font text-lg font-semibold text-gray-200 truncate">
