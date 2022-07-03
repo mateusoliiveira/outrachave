@@ -1,3 +1,4 @@
+//@ts-ignore
 import SimpleFileUpload from "react-simple-file-upload"
 import { Button, Dropdown, Label, Select, TextInput } from "flowbite-react"
 import FormData from "form-data"
