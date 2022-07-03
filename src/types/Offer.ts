@@ -4,8 +4,7 @@ export interface Offer {
     vehicle_id: string;
     title: string;
     description: string;
-    file: any;
-    picture?: string;
+    picture: any;
     price: string;
     contact: string;
     zip_code: string;

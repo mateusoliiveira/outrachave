@@ -1,10 +1,9 @@
-import axios from "axios"
+import SimpleFileUpload from "react-simple-file-upload"
 import { Button, Dropdown, Label, Select, TextInput } from "flowbite-react"
 import FormData from "form-data"
-import { getToken } from "next-auth/jwt"
 import { useRouter } from "next/router"
-import React, { ChangeEvent, useEffect, useState } from "react"
-import { ApiClient, ApiServer } from "../../../_services"
+import React, { ChangeEvent, useState } from "react"
+import { ApiServer } from "../../../_services"
 import { Brand } from "../../../types/Brand"
 import { Category } from "../../../types/Category"
 import { Offer } from "../../../types/Offer"
@@ -42,7 +41,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     vehicle_id: "",
     title: "",
     description: "",
-    file: null,
+    picture: "",
     price: "",
     contact: "",
     zip_code: "",
@@ -66,6 +65,14 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     return vehiclesList
   }
 
+  const uploadedUrl = (url: string): void => {
+    console.log(url)
+    setOffer({
+      ...offer,
+      picture: url,
+    })
+  }
+
   const handlePublish = async () => {
     let body = new FormData()
     body.append("brand_id", offer.brand_id)
@@ -76,7 +83,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     body.append("price", offer.price.toString())
     body.append("contact", offer.contact)
     body.append("zip_code", offer.zip_code)
-    body.append("file", offer.file)
+    body.append("picture", offer.picture)
     setRequisitionResult(undefined)
 
     try {
@@ -111,7 +118,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
       greenIfContactZipCodeIsFilled: checkFill([
         offer.contact && offer.zip_code,
       ]),
-      greenIfFileIsFilled: checkFill([offer.file]),
+      greenIfFileIsFilled: checkFill([offer.picture]),
     }
 
     if (stepToCheck === "all") return alreadyDone
@@ -377,24 +384,15 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
             className="flex flex-col gap-5 m-auto"
           >
             <div className="mb-2 block">
-              <Label
-                className="text-red-300 font-extrabold"
-                htmlFor="file"
-                value="foto do seu carro"
-              />
+              {
+                <SimpleFileUpload
+                  apiKey="9c124e6cfcc1638f4a5c54d8a5429fc8"
+                  onSuccess={uploadedUrl}
+                  preview="true"
+                  resizeWidth="300"
+                />
+              }
             </div>
-
-            <input
-              className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-              id="file_input"
-              type="file"
-              onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                setOffer({
-                  ...offer,
-                  file: e.target.files ? e.target.files[0] : null,
-                })
-              }}
-            />
             {typeof handleStepAlreadyDone("greenIfFileIsFilled") !==
             "string" ? (
               ""

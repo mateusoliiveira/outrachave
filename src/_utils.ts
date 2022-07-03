@@ -164,3 +164,48 @@ export function hideData(data: string) {
             : c
     )
 }
+
+const startCeps: any = [
+    { AC: [699, 699] },
+    { AL: [570, 579] },
+    { AM: [690, 692] },
+    { AM2: [694, 698] },
+    { AP: [689, 689] },
+    { BA: [400, 489] },
+    { CE: [600, 639] },
+    { DF: [700, 727] },
+    { DF2: [730, 736] },
+    { ES: [290, 299] },
+    { GO: [728, 729] },
+    { GO2: [737, 767] },
+    { MA: [650, 659] },
+    { MG: [300, 399] },
+    { MS: [790, 799] },
+    { MT: [780, 788] },
+    { PA: [660, 688] },
+    { PB: [580, 589] },
+    { PE: [500, 569] },
+    { PI: [640, 649] },
+    { PR: [800, 879] },
+    { RJ: [200, 289] },
+    { RN: [590, 599] },
+    { RO: [768, 769] },
+    { RR: [693, 693] },
+    { RS: [900, 999] },
+    { SC: [880, 899] },
+    { SE: [490, 499] },
+    { SP: [0o10, 199] },
+    { TO: [770, 779] }
+]
+const increaserRanger = (diff: any) => {
+    let start: number = diff[0]
+    let end: number = diff[1]
+    let intermediate: number[] = []
+    for (start; start < end; start++) {
+        intermediate.push(start)
+    }
+    intermediate.push(end)
+    return intermediate
+
+}
+let arrayNuns = startCeps.map((data: any) => Object.values(data))

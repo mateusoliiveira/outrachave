@@ -5,6 +5,7 @@ import Wrapper from "./../components/Structure/Wrapper"
 import "../styles/index.css"
 import { SessionProvider } from "next-auth/react"
 import { formatToBRL } from "../_utils"
+import Script from "next/script"
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }: any) {
@@ -38,6 +39,7 @@ export default class MyApp extends App {
                   )}`
                 : "outrachave"}
             </title>
+            <Script src="https://app.simplefileupload.com/buckets/9c124e6cfcc1638f4a5c54d8a5429fc8.js" />
           </Head>
           <Wrapper>
             <Component {...pageProps} />
