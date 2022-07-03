@@ -1,4 +1,4 @@
-import { Accordion, Label, Radio, TextInput } from "flowbite-react"
+import { Accordion, Label, Radio, Select, TextInput } from "flowbite-react"
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import CardCar from "./CardCar"
 import ScrollCars from "./ScrollCars"
@@ -236,35 +236,28 @@ const CarsForSale = ({ cars, query }: any) => {
           <Accordion.Panel>
             <Accordion.Title>Câmbio</Accordion.Title>
             <Accordion.Content>
-              <fieldset
-                className="flex flex-row gap-5 px-10 justify-center"
-                id="radio"
-                onChange={(e: any) =>
-                  setFilters({
-                    ...filters,
-                    is_automatic: Number(e.target.value),
-                  })
-                }
-              >
-                <div className="flex items-center gap-1">
-                  <Radio id="mt" name="countries" value={1} />
-                  <Label className="text-white" htmlFor="mt">
-                    Manual
-                  </Label>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Radio id="at" name="countries" value={2} />
-                  <Label className="text-white" htmlFor="at">
-                    Automático
-                  </Label>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Radio id="all" name="countries" value={0} />
-                  <Label className="text-white" htmlFor="all">
+              <form className="flex-col justify-center text-red-600 font-bold -mx-1">
+                <Select
+                  id="countries"
+                  className="min-w-100"
+                  onChange={(e: any) =>
+                    setFilters({
+                      ...filters,
+                      is_automatic: Number(e.target.value),
+                    })
+                  }
+                >
+                  <option className="mx-36" value={0}>
                     Todos
-                  </Label>
-                </div>
-              </fieldset>
+                  </option>
+                  <option className="mx-36" value={1}>
+                    Manual
+                  </option>
+                  <option className="mx-36" value={2}>
+                    Automático
+                  </option>
+                </Select>
+              </form>
             </Accordion.Content>
           </Accordion.Panel>
         </Accordion>

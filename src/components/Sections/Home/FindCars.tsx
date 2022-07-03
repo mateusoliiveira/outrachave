@@ -1,4 +1,5 @@
 import { Button, Dropdown, TextInput } from "flowbite-react"
+import Image from "next/image"
 import Link from "next/link"
 import React, { ChangeEvent, useState } from "react"
 import { Brand } from "../../../types/Brand"
@@ -92,7 +93,17 @@ const FindCars = (props: any) => {
                     return (
                       <Link key={brand.id} href={`/busca/marca?id=${brand.id}`}>
                         <div>
-                          <Dropdown.Item>{brand.name}</Dropdown.Item>
+                          <Dropdown.Item>
+                            <div className="flex gap-x-3">
+                              <Image
+                                src={brand.picture}
+                                width="20rem"
+                                height="20rem"
+                                className=""
+                              />
+                              <span>{brand.name}</span>
+                            </div>
+                          </Dropdown.Item>
                         </div>
                       </Link>
                     )
