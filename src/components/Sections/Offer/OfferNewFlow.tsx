@@ -74,7 +74,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     })
   }
 
-  const handlePublish = async () => {
+  const handlePublish = async (url: string) => {
     let body = new FormData()
     body.append("brand_id", offer.brand_id)
     body.append("category_id", offer.category_id)
@@ -84,7 +84,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     body.append("price", offer.price.toString())
     body.append("contact", offer.contact)
     body.append("zip_code", offer.zip_code)
-    body.append("picture", offer.picture)
+    body.append("picture", url)
     setRequisitionResult(undefined)
 
     try {
@@ -220,7 +220,17 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                                 })
                               }
                             >
-                              <Dropdown.Item>{vehicle.name}</Dropdown.Item>
+                              <Dropdown.Item>
+                                <div>
+                                  <p className="mb-1">{`${vehicle.name} ${vehicle.year}`}</p>
+                                  <hr />
+                                  <small>{`${vehicle.doors}p | ${Number(
+                                    vehicle.liters
+                                  ).toFixed(1)} ${vehicle.cylinders}cl.  | ${
+                                    vehicle.horsepower
+                                  }cv`}</small>
+                                </div>
+                              </Dropdown.Item>
                             </div>
                           )
                         })}
@@ -384,31 +394,34 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
             onSubmit={(e: any) => e.preventDefault()}
             className="flex flex-col gap-5 m-auto"
           >
-            <div className="mb-2 block">
-              {
-                <SimpleFileUpload
-                  apiKey="9c124e6cfcc1638f4a5c54d8a5429fc8"
-                  onSuccess={uploadedUrl}
-                  preview="true"
-                  resizeWidth="300"
-                />
-              }
-            </div>
             {typeof handleStepAlreadyDone("greenIfFileIsFilled") !==
             "string" ? (
-              ""
+              <div className="mb-2 block">
+                {
+                  <SimpleFileUpload
+                    apiKey="9c124e6cfcc1638f4a5c54d8a5429fc8"
+                    onSuccess={(url: any) => handlePublish(url)}
+                    preview="true"
+                    resizeWidth="500"
+                    data-accepted="image/*"
+                    data-maxFileSize="1"
+                  />
+                }
+              </div>
             ) : (
-              <small>
-                ao preencher todos os campos, você poderá enviar seu anúncio :)
-              </small>
+              <div className="items-center gap-x-3 border p-3 rounded">
+                <h3>
+                  preencha todos os campos para poder escolher sua imagem :)
+                </h3>
+                <div className="flex gap-x-3 items-center">
+                  <span className="text-yellow-200 text-lg">⚠</span>
+                  <small className="text-white">
+                    seu anúncio será enviado automaticamente após o envio da
+                    imagem, que deve ter no máximo 1MB
+                  </small>
+                </div>
+              </div>
             )}
-            <Button
-              gradientDuoTone="purpleToBlue"
-              onClick={() => handlePublish()}
-              disabled={!checkIfAreAllFilled()}
-            >
-              <div className="font-bold">finalizar</div>
-            </Button>
           </div>
         </Tab>
       ),
