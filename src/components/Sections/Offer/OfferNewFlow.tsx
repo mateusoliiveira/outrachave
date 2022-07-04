@@ -24,7 +24,6 @@ type StepsAlreadyDone = {
   greenIfBrandModelCategoryIsFilled: string
   greenIfTitleDescriptionPriceIsFilled: string
   greenIfContactZipCodeIsFilled: string
-  greenIfFileIsFilled: string
 }
 type StpAlreadyDone = keyof StepsAlreadyDone
 
@@ -72,9 +71,11 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
       ...offer,
       picture: url,
     })
+
+    handlePublish()
   }
 
-  const handlePublish = async (url: string) => {
+  const handlePublish = async () => {
     let body = new FormData()
     body.append("brand_id", offer.brand_id)
     body.append("category_id", offer.category_id)
@@ -84,7 +85,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     body.append("price", offer.price.toString())
     body.append("contact", offer.contact)
     body.append("zip_code", offer.zip_code)
-    body.append("picture", url)
+    body.append("picture", offer.picture)
     setRequisitionResult(undefined)
 
     try {
@@ -119,7 +120,6 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
       greenIfContactZipCodeIsFilled: checkFill([
         offer.contact && offer.zip_code,
       ]),
-      greenIfFileIsFilled: checkFill([offer.picture]),
     }
 
     if (stepToCheck === "all") return alreadyDone
@@ -394,13 +394,12 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
             onSubmit={(e: any) => e.preventDefault()}
             className="flex flex-col gap-5 m-auto"
           >
-            {typeof handleStepAlreadyDone("greenIfFileIsFilled") !==
-            "string" ? (
+            {checkIfAreAllFilled() ? (
               <div className="mb-2 block">
                 {
                   <SimpleFileUpload
                     apiKey="9c124e6cfcc1638f4a5c54d8a5429fc8"
-                    onSuccess={(url: any) => handlePublish(url)}
+                    onSuccess={(url: string) => uploadedUrl(url)}
                     preview="true"
                     resizeWidth="500"
                     data-accepted="image/*"
