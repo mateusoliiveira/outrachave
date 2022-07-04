@@ -32,7 +32,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
   const [requisitionResult, setRequisitionResult] = useState<any>(undefined)
   const [brandsList, setBrandsList] = useState<Brand[]>(
     brands.filter(
-      (b) =>
+      (b: any) =>
         b.name === "BMW" || b.name === "Mercedes" || b.name === "Volkswagen"
     )
   )
