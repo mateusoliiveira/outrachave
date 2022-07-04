@@ -544,7 +544,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
               <div className="flex relative pb-12">
                 <div className="h-full w-10 absolute inset-0 flex items-center justify-center"></div>
                 <div
-                  className={`flex-shrink-0 w-10 h-10 rounded-full inline-flex items-center justify-center text-white relative z-10`}
+                  className={`flex-shrink-0 w-10 h-10 rounded-full bg-white inline-flex items-center justify-center text-white relative z-10`}
                 >
                   <svg
                     width="32px"
