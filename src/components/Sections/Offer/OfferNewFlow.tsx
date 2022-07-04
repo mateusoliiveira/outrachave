@@ -93,7 +93,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     }
   }
 
-  const handleStepAlreadyDone = (stepToCheck: StpAlreadyDone | "all") => {
+  const handleStepAlreadyDone = (stepToCheck: StpAlreadyDone) => {
     const CLASS_IF_FILLED = "bg-green-400"
     const CLASS_IF_EMPTY = "bg-gray-200"
     const checkFill = (inputs: unknown[]): string => {
@@ -112,15 +112,12 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
       ]),
     }
 
-    if (stepToCheck === "all") return alreadyDone
-
     return alreadyDone[stepToCheck] ?? CLASS_IF_EMPTY
   }
 
-  const checkIfAreAllFilled = () => {
-    return Object.values(handleStepAlreadyDone("all")).every((groupOfSteps) =>
-      groupOfSteps.includes("green")
-    )
+  const checkIfAreAllFilled = (): boolean => {
+    const { picture, ...offerObject } = offer
+    return Object.values(offerObject).every((v) => v.trim() !== 0)
   }
 
   const handleSteps = (stage: Stp) => {
