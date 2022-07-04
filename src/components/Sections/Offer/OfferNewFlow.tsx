@@ -31,7 +31,9 @@ type StpAlreadyDone = keyof StepsAlreadyDone
 const OfferNewFlow = ({ categories, brands, token }: any) => {
   const navigate = useRouter()
   const [requisitionResult, setRequisitionResult] = useState<any>(undefined)
-  const [brandsList, setBrandsList] = useState<Brand[]>(brands)
+  const [brandsList, setBrandsList] = useState<Brand[]>(
+    brands.filter((b) => b.name === "BMW" || b.name === "Mercedes")
+  )
   const [vehiclesList, setVehiclesList] = useState<any[]>([])
   const [keywordBrand, setKeywordBrand] = useState<string>("")
   const [keywordVehicle, setKeywordVehicle] = useState<string>("")
