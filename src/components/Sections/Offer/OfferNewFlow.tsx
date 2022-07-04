@@ -65,17 +65,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     return vehiclesList
   }
 
-  const uploadedUrl = (url: string): void => {
-    console.log(url)
-    setOffer({
-      ...offer,
-      picture: url,
-    })
-
-    handlePublish()
-  }
-
-  const handlePublish = async () => {
+  const handlePublish = async (url: string) => {
     let body = new FormData()
     body.append("brand_id", offer.brand_id)
     body.append("category_id", offer.category_id)
@@ -85,7 +75,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     body.append("price", offer.price.toString())
     body.append("contact", offer.contact)
     body.append("zip_code", offer.zip_code)
-    body.append("picture", offer.picture)
+    body.append("picture", url)
     setRequisitionResult(undefined)
 
     try {
@@ -399,7 +389,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                 {
                   <SimpleFileUpload
                     apiKey="9c124e6cfcc1638f4a5c54d8a5429fc8"
-                    onSuccess={(url: string) => uploadedUrl(url)}
+                    onSuccess={(url: string) => handlePublish(url)}
                     preview="true"
                     resizeWidth="500"
                     data-accepted="image/*"
