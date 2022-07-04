@@ -21,6 +21,7 @@
     "next-auth": "*",
     "react": "^18.0.2",
     "react-dom": "^18.0.2",
+    "react-imask": "^6.4.2",
     "react-simple-file-upload": "^1.0.1",
     "socket.io-client": "^4.5.0",
     "tinymce": "^6.0.3"

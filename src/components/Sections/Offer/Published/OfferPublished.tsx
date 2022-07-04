@@ -39,7 +39,8 @@ const OfferPublished = ({ offer, locate }: any) => {
                     src="https://img.icons8.com/ios/25/000000/engine.png"
                   />
                   {Number(offer.vehicles.liters).toFixed(1)}|
-                  {offer.vehicles.cylinders} cil.|{offer.vehicles.horsepower} cv
+                  {offer.vehicles.cylinders} cil.|
+                  {offer.vehicles.horsepower ?? "n/a"} cv
                 </div>
               </span>
               <div className="flex ml-3 gap-2 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">

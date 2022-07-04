@@ -3,7 +3,7 @@ import SimpleFileUpload from "react-simple-file-upload"
 import { Button, Dropdown, Label, Select, TextInput } from "flowbite-react"
 import FormData from "form-data"
 import { useRouter } from "next/router"
-import React, { ChangeEvent, useState } from "react"
+import React, { ChangeEvent, useState, useRef } from "react"
 import { ApiServer } from "../../../_services"
 import { Brand } from "../../../types/Brand"
 import { Category } from "../../../types/Category"
@@ -11,6 +11,7 @@ import { Offer } from "../../../types/Offer"
 import { Vehicle } from "../../../types/Vehicle"
 import Feedback from "../../Feedback"
 import Tab from "../../Tab"
+import { useIMask } from "react-imask"
 
 type Steps = {
   first: JSX.Element
@@ -46,6 +47,25 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     contact: "",
     zip_code: "",
   })
+
+  function IMaskWithHook() {
+    const [opts, setOpts] = useState({
+      mask: Number,
+      radix: ".",
+    })
+    const {
+      ref,
+      maskRef,
+      value,
+      setValue,
+      unmaskedValue,
+      setUnmaskedValue,
+      typedValue,
+      setTypedValue,
+    } = useIMask(opts)
+
+    return <input ref={ref} />
+  }
 
   const brandsFiltered = (): Brand[] => {
     if (keywordBrand.trim() !== "") {
@@ -214,7 +234,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                                   <small>{`${vehicle.doors}p | ${Number(
                                     vehicle.liters
                                   ).toFixed(1)} ${vehicle.cylinders}cl.  | ${
-                                    vehicle.horsepower
+                                    vehicle.horsepower ?? "n/a"
                                   }cv`}</small>
                                 </div>
                               </Dropdown.Item>
@@ -310,6 +330,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                   value="preço"
                 />
               </div>
+              <IMaskWithHook />
               <TextInput
                 id="price"
                 type="text"
