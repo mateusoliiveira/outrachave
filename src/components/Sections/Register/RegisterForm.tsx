@@ -15,6 +15,11 @@ const RegisterForm = () => {
 
   const handleRegister = async () => {
     setRequisitionResult(undefined)
+    if (user.password !== confirmPassword)
+      return setRequisitionResult({
+        messages: ["Senhas não coincidem"],
+        status: 400,
+      })
     try {
       const request = await ApiClient.post("/guests/register", user)
       return setRequisitionResult({
