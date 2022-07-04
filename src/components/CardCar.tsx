@@ -9,20 +9,25 @@ const CardCar = ({ carData }: any) => {
       <div className="max-w-sm h-95 hover:animate-[scaleUp_0.5s_ease-in-out_forwards] p-0.5">
         <Card
           imgAlt="Image Car"
-          style={{ minHeight: "50%" }}
+          style={{ minHeight: "100%" }}
           imgSrc={carData.picture}
         >
           <h5 className="text-1xl md:text-1xl font-bold tracking-tight text-gray-900 dark:text-white truncate">
             {`${carData.title}`}
           </h5>
-          <h6 className="text-1xl md:text-md font-bold tracking-tight text-gray-700 dark:text-white">
-            {`${carData.vehicles.doors}p | ${
-              carData.vehicles.is_automatic ? "AT" : "MT"
-            } | ${Number(carData.vehicles.liters).toFixed(1)} | ${
-              carData.vehicles.horsepower || "n/a "
-            }cv`}
-          </h6>
-          <span className="text-start text-2xl font-extrabold">
+          <div className="flex items-center gap-x-2">
+            <Badge color="info" className="block">
+              <span className="font-extrabold">
+                {`${carData.vehicles.year} | ${carData.vehicles.doors}p | ${
+                  carData.vehicles.is_automatic ? "AT" : "MT"
+                } | ${Number(carData.vehicles.liters).toFixed(1)} | ${
+                  carData.vehicles.cylinders
+                } cil.`}
+              </span>
+            </Badge>
+          </div>
+
+          <span className="text-start sm:text-2xl truncate font-extrabold">
             {formatToBRL(carData.price)}
           </span>
         </Card>
