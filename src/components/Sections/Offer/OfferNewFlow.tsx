@@ -218,9 +218,9 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                                   <hr />
                                   <small>{`${vehicle.doors}p | ${Number(
                                     vehicle.liters
-                                  ).toFixed(1)} ${vehicle.cylinders}cl.  | ${
-                                    vehicle.horsepower || "n/a "
-                                  }cv`}</small>
+                                  ).toFixed(1)} ${
+                                    vehicle.cylinders
+                                  }cl.`}</small>
                                 </div>
                               </Dropdown.Item>
                             </div>
