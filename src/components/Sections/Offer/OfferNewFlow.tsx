@@ -48,25 +48,6 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
     zip_code: "",
   })
 
-  function IMaskWithHook() {
-    const [opts, setOpts] = useState({
-      mask: Number,
-      radix: ".",
-    })
-    const {
-      ref,
-      maskRef,
-      value,
-      setValue,
-      unmaskedValue,
-      setUnmaskedValue,
-      typedValue,
-      setTypedValue,
-    } = useIMask(opts)
-
-    return <input ref={ref} />
-  }
-
   const brandsFiltered = (): Brand[] => {
     if (keywordBrand.trim() !== "") {
       return brandsList.filter((brand: Brand) =>
@@ -330,7 +311,6 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                   value="preço"
                 />
               </div>
-              <IMaskWithHook />
               <TextInput
                 id="price"
                 type="text"
