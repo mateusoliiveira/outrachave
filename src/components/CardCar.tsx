@@ -19,7 +19,7 @@ const CardCar = ({ carData }: any) => {
             {`${carData.vehicles.doors}p | ${
               carData.vehicles.is_automatic ? "AT" : "MT"
             } | ${Number(carData.vehicles.liters).toFixed(1)} | ${
-              carData.vehicles.horsepower ?? "n/a"
+              carData.vehicles.horsepower || "n/a"
             }cv`}
           </h6>
           <span className="text-start text-2xl font-extrabold">

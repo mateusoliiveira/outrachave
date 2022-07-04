@@ -215,7 +215,7 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
                                   <small>{`${vehicle.doors}p | ${Number(
                                     vehicle.liters
                                   ).toFixed(1)} ${vehicle.cylinders}cl.  | ${
-                                    vehicle.horsepower ?? "n/a"
+                                    vehicle.horsepower || "n/a"
                                   }cv`}</small>
                                 </div>
                               </Dropdown.Item>
