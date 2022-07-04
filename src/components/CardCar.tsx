@@ -9,7 +9,7 @@ const CardCar = ({ carData }: any) => {
       <div className="max-w-sm h-95 hover:animate-[scaleUp_0.5s_ease-in-out_forwards] p-0.5">
         <Card
           imgAlt="Image Car"
-          style={{ minHeight: "100%" }}
+          style={{ minHeight: "50%" }}
           imgSrc={carData.picture}
         >
           <h5 className="text-1xl md:text-1xl font-bold tracking-tight text-gray-900 dark:text-white truncate">
