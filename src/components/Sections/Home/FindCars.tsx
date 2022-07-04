@@ -6,7 +6,10 @@ import { Brand } from "../../../types/Brand"
 
 const FindCars = (props: any) => {
   const [brandsList, setBrandsList] = useState<Brand[]>(
-    props.brands.filter((b) => b.name === "BMW" || b.name === "Mercedes")
+    props.brands.filter(
+      (b) =>
+        b.name === "BMW" || b.name === "Mercedes" || b.name === "Volkswagen"
+    )
   )
   const [keywordBrand, setKeywordBrand] = useState<string>("")
   const [keywordModel, setKeywordModel] = useState<string>("")

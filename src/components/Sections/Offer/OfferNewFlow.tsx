@@ -11,7 +11,6 @@ import { Offer } from "../../../types/Offer"
 import { Vehicle } from "../../../types/Vehicle"
 import Feedback from "../../Feedback"
 import Tab from "../../Tab"
-import { useIMask } from "react-imask"
 
 type Steps = {
   first: JSX.Element
@@ -32,7 +31,10 @@ const OfferNewFlow = ({ categories, brands, token }: any) => {
   const navigate = useRouter()
   const [requisitionResult, setRequisitionResult] = useState<any>(undefined)
   const [brandsList, setBrandsList] = useState<Brand[]>(
-    brands.filter((b) => b.name === "BMW" || b.name === "Mercedes")
+    brands.filter(
+      (b) =>
+        b.name === "BMW" || b.name === "Mercedes" || b.name === "Volkswagen"
+    )
   )
   const [vehiclesList, setVehiclesList] = useState<any[]>([])
   const [keywordBrand, setKeywordBrand] = useState<string>("")
