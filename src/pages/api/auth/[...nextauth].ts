@@ -8,25 +8,19 @@ export default NextAuth({
     Credentials({
       type: 'credentials',
       async authorize(credentials: any, req): Promise<any> {
-        try {
-          let {
-            data,
-            status,
-            ...resultRequest
-          } = await
-              ApiClient
-                .post("/guests/login", credentials)
-          console.log(resultRequest, data, status)
-          if (status === 200) {
-            return {
-              userRole: data.user.role === 1 ? 'admin' : false,
-              email: data.user.email,
-              user: data.user.name,
-              token: data.token,
-            }
+        let {
+          data,
+          status
+        } = await
+            ApiClient
+              .post("/guests/login", credentials)
+        if (status === 200) {
+          return {
+            userRole: data.user.role === 1 ? 'admin' : false,
+            email: data.user.email,
+            user: data.user.name,
+            token: data.token,
           }
-        } catch (error: any) {
-          throw new Error(JSON.stringify(error.response.data), { cause: error.response.data })
         }
         return null
       },
