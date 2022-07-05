@@ -16,6 +16,9 @@ const HeroAccount = ({ user, offers }: any) => {
             <Profile user={user} />
           </Tab>
         </Tabs.Item>
+        <Tabs.Item title="Editar minha conta">
+          <Tab></Tab>
+        </Tabs.Item>
         <Tabs.Item title="Meus Anúncios (em breve)" disabled={true}>
           <Tab>
             <Published offers={offers} />
