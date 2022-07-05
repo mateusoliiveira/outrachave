@@ -38,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   })
   res.setHeader(
     "Cache-Control",
-    "public, s-maxage=3600, stale-while-revalidate=42200"
+    "public, s-maxage=30, stale-while-revalidate=120"
   )
   if (!data) {
     return { notFound: true }
