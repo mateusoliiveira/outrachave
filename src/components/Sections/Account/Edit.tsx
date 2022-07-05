@@ -28,7 +28,11 @@ const Edit = ({ user }: any) => {
               </h2>
             </div>
             <p className="leading-relaxed text-base">
-              <TextInput type="text" placeholder="novo nome" />
+              <TextInput
+                type="text"
+                defaultValue={user.name}
+                placeholder="novo nome"
+              />
             </p>
             <p className="leading-relaxed text-base">{hideEmail(user.email)}</p>
             <a className="cursor-pointer block w-max border rounded-md p-1 px-3 mt-3">
