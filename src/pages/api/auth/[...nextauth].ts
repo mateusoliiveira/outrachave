@@ -26,7 +26,7 @@ export default NextAuth({
             }
           }
         } catch (error: any) {
-          throw new Error('oops', { cause: error.response.data })
+          throw new Error(JSON.stringify(error.response.data), { cause: error.response.data })
         }
         return null
       },
