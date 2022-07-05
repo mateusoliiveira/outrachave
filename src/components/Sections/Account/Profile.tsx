@@ -54,7 +54,7 @@ const Profile = ({ user }: any) => {
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
               </div>
-              <h2 className="text-gray-200 text-lg title-font font-medium mb-3">
+              <h2 className="lg:text-gray-200 text-lg title-font font-bold mb-3">
                 minhas informações
               </h2>
             </div>
@@ -98,7 +98,7 @@ const Profile = ({ user }: any) => {
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                 </svg>
               </div>
-              <h2 className="text-gray-300 text-lg title-font font-medium mb-3">
+              <h2 className="lg:text-gray-200 text-lg title-font font-bold mb-3">
                 favoritos
               </h2>
             </div>

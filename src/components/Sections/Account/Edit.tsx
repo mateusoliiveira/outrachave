@@ -1,6 +1,5 @@
 import { Label, TextInput } from "flowbite-react"
 import React, { ChangeEvent, useState } from "react"
-import { hideEmail } from "../../../_utils"
 
 const Edit = ({ user }: any) => {
   const [userData, setUserData] = useState<any>(user)
@@ -24,16 +23,16 @@ const Edit = ({ user }: any) => {
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
               </div>
-              <h2 className="text-gray-200 text-lg title-font font-medium mb-3">
+              <h2 className="lg:text-gray-200 text-lg title-font font-bold mb-3">
                 me atualizar
               </h2>
             </div>
-            <div className="flex md:flex-col">
-              <div className="flex-col">
+            <div className="md:flex-col">
+              <div className="flex-col p-3">
                 <div className="mb-2 block">
                   <div>
                     <Label
-                      className="text-white"
+                      className="text-black md:text-white"
                       htmlFor="nameEdit"
                       value="seu novo nome"
                     />
@@ -47,82 +46,46 @@ const Edit = ({ user }: any) => {
                     type="text"
                   />
                 </div>
-                <div className="mb-2 block">
-                  <div>
-                    <Label
-                      className="text-white"
-                      htmlFor="emailEdit"
-                      value="seu novo nome"
-                    />
-                  </div>
-                  <TextInput
-                    id="emailEdit"
-                    defaultValue={`${hideEmail(user.email)}`}
-                    type="text"
-                    disabled={true}
-                  />
-                </div>
                 <a className="cursor-pointer block w-max border rounded-md p-1 px-3 mt-3">
                   atualizar novos dados
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col mb-10 lg:items-start items-center">
-          <div className="flex-grow">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  className="w-6 h-6"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
-              </div>
-              <h2 className="text-gray-300 text-lg title-font font-medium mb-3">
-                favoritos
-              </h2>
-            </div>
-            <div className="flex-col">
-              <div className="mb-2 block">
-                <div>
-                  <Label
-                    className="text-white"
-                    htmlFor="oldPass"
-                    value="sua senha atual"
-                  />
+
+              <div className="flex-col border-t-2 mt-5 p-3 border-t-purple-200">
+                <div className="mb-2 block">
+                  <div>
+                    <Label
+                      className="text-black md:text-white"
+                      htmlFor="oldPass"
+                      value="sua senha atual"
+                    />
+                  </div>
+                  <TextInput id="oldPass" type="password" />
                 </div>
-                <TextInput id="oldPass" type="password" />
-              </div>
-              <div className="mb-2 block">
-                <div>
-                  <Label
-                    className="text-white"
-                    htmlFor="newPass"
-                    value="sua nova senha"
-                  />
+                <div className="mb-2 block">
+                  <div>
+                    <Label
+                      className="text-black md:text-white"
+                      htmlFor="newPass"
+                      value="sua nova senha"
+                    />
+                  </div>
+                  <TextInput id="newPass" type="password" />
                 </div>
-                <TextInput id="newPass" type="password" />
-              </div>
-              <div className="mb-2 block">
-                <div>
-                  <Label
-                    className="text-white"
-                    htmlFor="confirmNewPass"
-                    value="confirme a nova senha"
-                  />
+                <div className="mb-2 block">
+                  <div>
+                    <Label
+                      className="text-black md:text-white"
+                      htmlFor="confirmNewPass"
+                      value="confirme a nova senha"
+                    />
+                  </div>
+                  <TextInput id="confirmNewPass" type="password" />
                 </div>
-                <TextInput id="confirmNewPass" type="password" />
+                <a className="cursor-pointer block w-max border rounded-md p-1 px-3 mt-3">
+                  salvar nova senha
+                </a>
               </div>
-              <a className="cursor-pointer block w-max border rounded-md p-1 px-3 mt-3">
-                salvar nova senha
-              </a>
             </div>
           </div>
         </div>
