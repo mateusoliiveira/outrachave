@@ -32,7 +32,11 @@ const Edit = ({ user }: any) => {
               <div className="flex-col">
                 <div className="mb-2 block">
                   <div>
-                    <Label htmlFor="nameEdit" value="seu novo nome" />
+                    <Label
+                      className="text-white"
+                      htmlFor="nameEdit"
+                      value="seu novo nome"
+                    />
                   </div>
                   <TextInput
                     id="nameEdit"
@@ -45,7 +49,11 @@ const Edit = ({ user }: any) => {
                 </div>
                 <div className="mb-2 block">
                   <div>
-                    <Label htmlFor="emailEdit" value="seu novo nome" />
+                    <Label
+                      className="text-white"
+                      htmlFor="emailEdit"
+                      value="seu novo nome"
+                    />
                   </div>
                   <TextInput
                     id="emailEdit"
@@ -56,32 +64,6 @@ const Edit = ({ user }: any) => {
                 </div>
                 <a className="cursor-pointer block w-max border rounded-md p-1 px-3 mt-3">
                   atualizar novos dados
-                </a>
-              </div>
-              <div className="flex-col">
-                <div className="mb-2 block">
-                  <div>
-                    <Label htmlFor="oldPass" value="sua senha atual" />
-                  </div>
-                  <TextInput id="oldPass" type="password" />
-                </div>
-                <div className="mb-2 block">
-                  <div>
-                    <Label htmlFor="newPass" value="sua nova senha" />
-                  </div>
-                  <TextInput id="newPass" type="password" />
-                </div>
-                <div className="mb-2 block">
-                  <div>
-                    <Label
-                      htmlFor="confirmNewPass"
-                      value="confirme a nova senha"
-                    />
-                  </div>
-                  <TextInput id="confirmNewPass" type="password" />
-                </div>
-                <a className="cursor-pointer block w-max border rounded-md p-1 px-3 mt-3">
-                  salvar nova senha
                 </a>
               </div>
             </div>
@@ -107,23 +89,41 @@ const Edit = ({ user }: any) => {
                 favoritos
               </h2>
             </div>
-            <p className="leading-relaxed text-base">
-              {"você favoritou X autos (em breve)"}
-            </p>
-            <a className="mt-3 text-indigo-500 inline-flex items-center">
-              ver todos
-              <svg
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                className="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
+            <div className="flex-col">
+              <div className="mb-2 block">
+                <div>
+                  <Label
+                    className="text-white"
+                    htmlFor="oldPass"
+                    value="sua senha atual"
+                  />
+                </div>
+                <TextInput id="oldPass" type="password" />
+              </div>
+              <div className="mb-2 block">
+                <div>
+                  <Label
+                    className="text-white"
+                    htmlFor="newPass"
+                    value="sua nova senha"
+                  />
+                </div>
+                <TextInput id="newPass" type="password" />
+              </div>
+              <div className="mb-2 block">
+                <div>
+                  <Label
+                    className="text-white"
+                    htmlFor="confirmNewPass"
+                    value="confirme a nova senha"
+                  />
+                </div>
+                <TextInput id="confirmNewPass" type="password" />
+              </div>
+              <a className="cursor-pointer block w-max border rounded-md p-1 px-3 mt-3">
+                salvar nova senha
+              </a>
+            </div>
           </div>
         </div>
       </div>
