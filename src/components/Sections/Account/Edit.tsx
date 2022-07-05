@@ -6,7 +6,7 @@ const Edit = ({ user }: any) => {
   const [userData, setUserData] = useState<any>(user)
   return (
     <div className="col lg:flex">
-      <div className="flex flex-col lg:py-3 -mb-10 lg:pl-12 pl-5 pt-10 rounded-md my-3 lg:text-left bg-white w-full lg:bg-transparent lg:w-1/2 items-start">
+      <div className="flex flex-col lg:py-3 -mb-10 lg:pl-12 pl-5 pt-10 rounded-md my-3 lg:text-left bg-white w-full lg:bg-transparent lg:w-2/3 items-start">
         <div className="flex flex-col mb-10 lg:items-start items-center">
           <div className="flex-grow">
             <div className="flex items-center gap-3">
