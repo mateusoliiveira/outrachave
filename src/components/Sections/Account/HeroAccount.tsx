@@ -3,6 +3,7 @@ import React from "react"
 import Profile from "./Profile"
 import Published from "./Published"
 import Tab from "../../Tab"
+import Edit from "./Edit"
 
 const HeroAccount = ({ user, offers }: any) => {
   return (
@@ -17,7 +18,9 @@ const HeroAccount = ({ user, offers }: any) => {
           </Tab>
         </Tabs.Item>
         <Tabs.Item title="Editar minha conta">
-          <Tab></Tab>
+          <Tab>
+            <Edit />
+          </Tab>
         </Tabs.Item>
         <Tabs.Item title="Meus Anúncios (em breve)" disabled={true}>
           <Tab>
