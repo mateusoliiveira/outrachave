@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   req,
   res,
 }: any) => {
-  const { data } = await ApiClient.get("/users/data", {
+  const { data } = await ApiClient.get("/users", {
     headers: { ...req.headers },
   })
   res.setHeader(
